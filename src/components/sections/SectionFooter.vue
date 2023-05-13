@@ -1,0 +1,79 @@
+<template>
+    <footer class=" bg-primary-50 py-12 pb-16">
+        <div class="container">
+            <div class="flex flex-wrap lg:flex-nowrap gap-6 lg:gap-6">
+                <div class="w-full lg:w-4/12">
+                    <div class="flex flex-col">
+                        <h6 class="text-white font-patrick-hand text-3xl">About Us</h6>
+
+
+                        <p class="mt-3">
+                            Gleiche foundation is a non-profit organization aimed at impacting the community through the
+                            needy, disabled and marginalized in the society as well as helping them realize their true
+                            potentials.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="w-full lg:w-4/12">
+                    <div class="flex flex-col">
+                        <h6 class="text-white font-patrick-hand text-3xl">Quick Links</h6>
+
+                        <div class="mt-3 flex flex-col gap-y-2">
+                            <a href="#" class="hover:text-white transition-all">Home</a>
+                            <a href="#" class="hover:text-white transition-all">News&Blog</a>
+                            <a href="#" class="hover:text-white transition-all">About</a>
+                            <a href="#" class="hover:text-white transition-all">Upcoming Event</a>
+                            <a href="#" class="hover:text-white transition-all">Contact</a>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-full lg:w-4/12">
+                    <div class="flex flex-col gap-y-3">
+                        <div class="flex flex-col">
+                            <h6 class="text-white font-patrick-hand text-3xl">Our Mission</h6>
+
+                            <p class="mt-3">
+
+                                Promote education,enhace talent, assist the less privileged and disabled with finacial
+                                assistance and moral support and promoting leadership amongst its members and volunteers
+                            </p>
+                        </div>
+
+                        <div class="flex flex-col">
+                            <h6 class="text-white font-patrick-hand text-3xl">Follow Us</h6>
+
+                            <div class="mt-3">
+                                <div class="flex gap-4">
+                                    <span class=" hover:text-white transition-all text-xl">
+                                        <a href="{% settings 'facebook_link' %}">
+                                            <i class="fa-brands fa-facebook-f"></i>
+                                        </a>
+                                    </span>
+
+                                    <span class=" hover:text-white transition-all text-xl">
+                                        <a href="{% settings 'youtube_link' %}">
+                                            <i class="fa-brands fa-youtube"></i>
+                                        </a>
+                                    </span>
+                                    <span class=" hover:text-white transition-all text-xl">
+                                        <a href="{% settings 'twitter_link' %}">
+                                            <i class="fa-brands fa-twitter"></i>
+                                        </a>
+                                    </span>
+                                    <span class=" hover:text-white transition-all text-xl">
+                                        <a href="{% settings 'instagram_link' %}">
+                                            <i class="fa-brands fa-instagram"></i>
+                                        </a>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</template>

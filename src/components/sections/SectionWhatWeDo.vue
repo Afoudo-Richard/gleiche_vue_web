@@ -1,0 +1,57 @@
+<template>
+    <div class="bg-gray-200 pb-12">
+        <div class="container flex flex-col justify-center items-center ">
+
+
+            <SectionTitleVue title="What We Do" subTitle="We spread love through actions, donations, sponsorship and volunteerism to the disable and less
+                    previlage" subTitleClass="text-black"></SectionTitleVue>
+
+            <div class="w-full flex flex-wrap md:flex-nowrap gap-3">
+                <div class="w-full md:w-4/12" data-aos="fade-right">
+                    <div
+                        class="bg-white group flex flex-col gap-2 lg:gap-4 items-center p-5 rounded-md drop-shadow-lg hover:drop-shadow-2xl border-2 border-secondary transition-all hover:border-primary transform hover:-translate-y-2">
+                        <div class="w-14 h-14 lg:w-24 lg:h-24 rounded-full">
+                            <img src="@/assets/images/003-community.svg" alt="gleiche foundation">
+                        </div>
+                        <p class="text-xl lg:text-2xl text-secondary group-hover:text-primary uppercase">sponsorship</p>
+                        <p class="text-center text-sm lg:text-lg">We assist the less privileged and disabled with finacial
+                            assistance
+                            and moral support</p>
+                    </div>
+                </div>
+
+                <div class="w-full md:w-4/12" data-aos="fade-up">
+                    <div
+                        class="bg-white group flex flex-col gap-2 lg:gap-4 items-center p-5 rounded-md drop-shadow-lg hover:drop-shadow-2xl border-2 border-secondary transition-all hover:border-primary transform hover:-translate-y-2">
+                        <div class="w-14 h-14 lg:w-24 lg:h-24 rounded-full">
+                            <img src="@/assets/images/001-donation.svg" alt="gleiche foundation">
+                        </div>
+                        <p class="text-xl lg:text-2xl text-secondary group-hover:text-primary uppercase">Donation</p>
+                        <p class="text-center text-sm lg:text-lg">We assist the less privileged and disabled with finacial
+                            assistance
+                            and moral support</p>
+                    </div>
+                </div>
+                <div class="w-full md:w-4/12" data-aos="fade-left">
+                    <div
+                        class="bg-white group flex flex-col gap-2 lg:gap-4 items-center p-5 rounded-md drop-shadow-lg hover:drop-shadow-2xl border-2 border-secondary transition-all hover:border-primary transform hover:-translate-y-2">
+                        <div class="w-14 h-14 lg:w-24 lg:h-24 rounded-full">
+                            <img src="@/assets/images/005-volunteer.svg" alt="gleiche foundation">
+                        </div>
+                        <p class="text-xl lg:text-2xl text-secondary group-hover:text-primary uppercase">Volunteer</p>
+                        <p class="text-center text-sm lg:text-lg">We assist the less privileged and disabled with finacial
+                            assistance
+                            and moral support</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</template>
+
+<script setup>
+
+import SectionTitleVue from '../components/SectionTitle.vue';
+import LinkButton from '../components/LinkButton.vue';
+</script>

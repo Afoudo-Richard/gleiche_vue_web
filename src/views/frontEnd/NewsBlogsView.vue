@@ -1,0 +1,52 @@
+<template>
+    
+
+<div class="container py-6 md:py-12 flex flex-col gap-4">
+    <SectionTitleVue title="News" ></SectionTitleVue>
+    <div class="py-12">
+        <!-- {{ forloop.counter }} -->
+        
+        <div class="w-full flex flex-wrap">
+            
+            <!-- <div class="w-full lg:w-4/12 px-0 lg:px-3">
+                {% include 'frontend/components/news_item.html' with item=item  %}
+            </div> -->
+            
+            
+        </div>
+
+        <!-- <div class="pagination flex items-center justify-center w-full mt-10">
+            <div class="flex-col items-center justify-center w-full">
+                <div class="flex justify-center mb-4 text-lg md:text-xl">
+                    Page {{ news_blogs.number }} of {{ news_blogs.paginator.num_pages }}.
+                </div>
+                    <div class="flex justify-center">
+                        {% if news_blogs.has_previous %}
+                            <a href="?page=1" class="border px-3 py-1 border-primary-50 rounded-lg text-sm md:text-xl">first</a>
+                            <a href="?page={{ news_blogs.previous_page_number }}" class="border px-3 py-1 border-primary bg-secondary rounded-lg text-white ml-2"><i class="fa-solid fa-arrow-left"></i></a>
+                        {% endif %}
+                
+                        {% if news_blogs.has_previous and news_blogs.has_next %}
+                            <div class="mx-3"></div>
+                        {% endif %}
+
+                        {% if news_blogs.has_next %}
+                            <a href="?page={{ news_blogs.next_page_number }}" class="border px-3 py-1 border-primary bg-secondary rounded-lg text-white mr-2" ><i class="fa-solid fa-arrow-right"></i></a>
+                            <a href="?page={{ news_blogs.paginator.num_pages }}" class="border px-3 py-1 border-primary-50 rounded-lg">last</a>
+                        {% endif %}
+                    </div>
+            </div>
+        </div> -->
+    </div>
+</div>
+
+
+
+</template>
+
+<script setup>
+import SectionTitleVue from '../../components/components/SectionTitle.vue';
+import NewsCard from '../../components/components/NewsCard.vue';
+
+
+</script>
