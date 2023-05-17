@@ -8,17 +8,17 @@
 <script setup>
 import { onBeforeMount } from 'vue';
 import { useUserStore } from '@/stores/user'
-// import { useAppStore } from '@/stores/app'
+import { useAppStore } from '@/stores/app'
 
 
 // const cartStore = useCartStore()
 const userStore = useUserStore()
-// const appStore = useAppStore()
+const appStore = useAppStore()
 
-onBeforeMount(() => {
+onBeforeMount(async () => {
   // cartStore.initializeStore()
   userStore.initializeUserStore()
-  // appStore.getAllCategories()
+ await appStore.getNewsBlog()
   // appStore.getAllTechnologies()
 
 })
