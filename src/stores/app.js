@@ -9,11 +9,16 @@ export const useAppStore = defineStore('app', {
 
             categories: [],
             news_blog: [],
+            volunteers: [],
+            upcoming_events: [],
             configs: {},
-            detailed_configs : {},
+            detailed_configs: {},
             is_loading_categories: false,
             is_news_blog_loading: false,
             is_loading_config: false,
+            is_loading_volunteer: false,
+            is_loading_upcoming_event: false,
+
 
         }
 
@@ -58,21 +63,60 @@ export const useAppStore = defineStore('app', {
             }
         },
 
-        
+        async getVolunteers() {
+            this.is_loading_volunteer = true
+            this.volunteers = []
+            const voluteers = Parse.Object.extend("volunteers");
+            const query = new Parse.Query(voluteers);
+            const results = await query.find();
+            this.is_loading_volunteer = false
+
+            for (let i = 0; i < results.length; i++) {
+                const object = results[i];
+                this.volunteers.push({
+                    id: object.id,
+                    full_name: object.get('full_name'),
+                    email: object.get('email'),
+                    img_thumb: object.get('img_thumb').url()
+                })
+            }
+        },
+
+        async getUpcomingEvents() {
+            this.is_loading_upcoming_event = true
+            this.upcoming_events = []
+            const upcoming_event = Parse.Object.extend("upcoming_events");
+            const query = new Parse.Query(upcoming_event);
+            const results = await query.find();
+            this.is_loading_upcoming_event = false
+
+            for (let i = 0; i < results.length; i++) {
+                const object = results[i];
+                this.upcoming_events.push({
+                    id: object.id,
+                    title: object.get('title'),
+                    description: object.get('description'),
+                    date_time: object.get('date_time'),
+                    img_thumb: object.get('img_thumb').url()
+                })
+            }
+        },
+
+
 
         async getAllConfigs() {
 
             this.is_loading_config = true
 
-              try {
+            try {
                 const config = await Parse.Config.get();
                 console.log(config);
                 this.configs = config;
-              } catch (error) {
+            } catch (error) {
                 console.log("Error fetching config");
-              }
+            }
 
-              this.is_loading_config = false
+            this.is_loading_config = false
         },
 
     },

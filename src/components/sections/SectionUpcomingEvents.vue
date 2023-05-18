@@ -5,6 +5,12 @@
 
             <SectionTitleVue title="Upcoming Events"></SectionTitleVue>
 
+            <div v-if="!appStore.is_loading_upcoming_event"
+                class="w-full gap-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
+
+                <UpcomingEventCard v-for="(item, index) in appStore.upcoming_events" :item="item" :index="index" :key="item.id" />
+            </div>
+
 
             <!-- {% if upcomming_events %}
             <div class="w-full flex flex-wrap">
@@ -35,5 +41,11 @@
 
 <script setup>
 import SectionTitleVue from '../components/SectionTitle.vue';
+import UpcomingEventCard from '../components/UpcomingEventCard.vue';
+import {useAppStore} from '@/stores/app'
+
+const appStore = useAppStore()
+
+
 
 </script>

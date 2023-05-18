@@ -1,8 +1,14 @@
 <template>
-    <div class="bg-white pb-12">
+    <div class="bg-white pb-12 bg-gradient-to-r from-white to-primary-100">
         <div class="container flex flex-col justify-center items-center ">
 
             <SectionTitleVue title="Our Volunteer" subTitle="Meet Our Volunteers"></SectionTitleVue>
+
+            <div v-if="!appStore.is_loading_volunteer"
+                class="w-full gap-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+
+                <VolunteerCard v-for="(item, index) in appStore.volunteers" :item="item" :index="index" :key="item.id" />
+            </div>
 
 
             <!-- <swiper :slidesPerView="1" :spaceBetween="3" :breakpoints="{
@@ -56,6 +62,8 @@
             </div>
             {% endif %} -->
 
+
+
         </div>
     </div>
 </template>
@@ -69,4 +77,9 @@ import { Pagination } from 'swiper';
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
+
+
+import {useAppStore} from '@/stores/app'
+
+const appStore = useAppStore()
 </script>

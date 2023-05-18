@@ -16,10 +16,9 @@ const userStore = useUserStore()
 const appStore = useAppStore()
 
 onBeforeMount(async () => {
-  // cartStore.initializeStore()
   userStore.initializeUserStore()
- await appStore.getNewsBlog()
-  // appStore.getAllTechnologies()
-
+  await appStore.getNewsBlog()
+  await appStore.getVolunteers()
+  await appStore.getUpcomingEvents()
 })
 </script>

@@ -1,7 +1,7 @@
 <template>
     <div class="bg-white rounded-lg p-6">
         <div class="flex items-center space-x-3 mb-4">
-            <img class="h-20 w-20 object-cover object-center rounded-full" src="/static/images{{item.image.url}}"
+            <img class="h-20 w-20 object-cover object-center rounded-full" :src="item.img_thumb"
                 alt="photo">
             <div>
                 <p class="text-base md:text-lg text-gray-700 font-normal mb-1">{{ item.fullname }}</p>
