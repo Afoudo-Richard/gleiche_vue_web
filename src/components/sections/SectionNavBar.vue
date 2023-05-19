@@ -150,7 +150,7 @@ const nav_links = ref([
         text: 'More',
         sub_links: [
             {
-                to: '/login',
+                to: '/executives',
                 text: 'Our Executives',
             },
             {

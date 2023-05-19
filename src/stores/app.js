@@ -11,6 +11,7 @@ export const useAppStore = defineStore('app', {
             news_blog: [],
             volunteers: [],
             upcoming_events: [],
+            executives: [],
             configs: {},
             detailed_configs: {},
             is_loading_categories: false,
@@ -18,7 +19,7 @@ export const useAppStore = defineStore('app', {
             is_loading_config: false,
             is_loading_volunteer: false,
             is_loading_upcoming_event: false,
-
+            is_loading_executives: false,
 
         }
 
@@ -80,6 +81,43 @@ export const useAppStore = defineStore('app', {
                     img_thumb: object.get('img_thumb').url()
                 })
             }
+        },
+
+        async getExecutives() {
+            this.is_loading_executives = true
+            this.executives = []
+            let results = await this.fetchExecutives();
+            this.is_loading_executives = false
+
+            // ==============
+
+            if(this.executives.length == 0){
+                
+            }
+
+            // ===========
+
+            for (let i = 0; i < results.length; i++) {
+                const object = results[i];
+                let img_url = object.get('img_thumb') ? object.get('img_thumb').url() : 'https://gleichefoundation.org/public/img/logo.jpg'
+
+                this.executives.push({
+                    id: object.id,
+                    full_name: object.get('full_name'),
+                    bio: object.get('bio'),
+                    position: object.get('position'),
+                    email: object.get('email'),
+                    img_thumb: img_url
+                })
+            }
+        },
+
+        async fetchExecutives(startIndex = 0, limit=5){
+            const executives = Parse.Object.extend("executives");
+            const query = new Parse.Query(executives);
+            query.limit(limit)
+            query.skip(startIndex)
+            return await query.find();
         },
 
         async getUpcomingEvents() {

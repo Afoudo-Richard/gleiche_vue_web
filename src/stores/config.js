@@ -2,6 +2,7 @@ import { defineStore } from 'pinia'
 
 
 
+
 export const useConfigStore = defineStore('config', {
     state: () => {
         return {
@@ -11,7 +12,13 @@ export const useConfigStore = defineStore('config', {
     },
 
     actions: {
-
+         debounce(func, timeout = 500){
+            let timer;
+            return (...args) => {
+              clearTimeout(timer);
+              timer = setTimeout(() => { func.apply(this, args); }, timeout);
+            };
+          }
 
     },
 

@@ -5,6 +5,7 @@ import AboutView from '../views/frontEnd/AboutView.vue'
 import NewsBlogsView from '../views/frontEnd/NewsBlogsView.vue'
 import ContactView from '../views/frontEnd/ContactView.vue'
 import LoginView from '../views/frontEnd/LoginView.vue'
+import ExecutivesView from '../views/frontEnd/ExecutivesView.vue'
 
 
 
@@ -29,6 +30,10 @@ const router = createRouter({
         {
           path: 'news-blogs',
           component: NewsBlogsView,
+        },
+        {
+          path: 'executives',
+          component: ExecutivesView,
         },
         {
           path: 'contact',
