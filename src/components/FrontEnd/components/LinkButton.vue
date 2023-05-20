@@ -1,18 +1,14 @@
 <template>
     <div v-if="is_link === false">
-        <span
-            class="button"
-            :class="class">
+        <span class="button" :class="class">
             {{ text }}
         </span>
     </div>
     <RouterLink v-else :to="to">
-        <span
-            class="button"
-            :class="class">
+        <span class="button" :class="class">
             {{ text }}
         </span>
-</RouterLink>
+    </RouterLink>
 </template>
 
 <script setup>

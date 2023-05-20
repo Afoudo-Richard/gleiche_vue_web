@@ -4,10 +4,14 @@
 
             <SectionTitleVue title="Our Volunteer" subTitle="Meet Our Volunteers"></SectionTitleVue>
 
-            <div v-if="!appStore.is_loading_volunteer"
-                class="w-full gap-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+            <div v-if="!volunteersStore.is_loading_volunteer" class="w-full gap-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
 
-                <VolunteerCard v-for="(item, index) in appStore.volunteers" :item="item" :index="index" :key="item.id" />
+                <VolunteerCard v-for="(item, index) in volunteersStore.volunteers" :item="item" :index="index" :key="item.id" />
+            </div>
+
+            <div>
+                <LinkButton :to="{ path: '/volunteers' }" text="See All" class="mt-3"></LinkButton>
+
             </div>
 
 
@@ -71,6 +75,8 @@
 <script setup>
 import SectionTitleVue from '../components/SectionTitle.vue';
 import VolunteerCard from '../components/VolunteerCard.vue';
+import LinkButton from '@/components/FrontEnd/components/LinkButton.vue'
+
 // Import Swiper Vue.js components
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Pagination } from 'swiper';
@@ -79,7 +85,9 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 
 
-import {useAppStore} from '@/stores/app'
+import { useVolunteerStore } from '@/stores/volunteers'
 
-const appStore = useAppStore()
+
+const volunteersStore = useVolunteerStore()
+
 </script>

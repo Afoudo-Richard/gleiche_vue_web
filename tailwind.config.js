@@ -17,7 +17,7 @@ module.exports = {
       },
       fontFamily: {
         'patrick-hand': ['Patrick Hand', 'cursive'],
-        'Poppins': ['Poppins', 'sans-serif'],
+        'poppins': ['Poppins', 'sans-serif'],
       },
       container: {
         center: true,

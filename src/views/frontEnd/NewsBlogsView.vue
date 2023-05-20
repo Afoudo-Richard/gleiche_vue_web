@@ -45,8 +45,8 @@
 </template>
 
 <script setup>
-import SectionTitleVue from '../../components/components/SectionTitle.vue';
-import NewsCard from '../../components/components/NewsCard.vue';
+import SectionTitleVue from '@/components/FrontEnd/components/SectionTitle.vue';
+import NewsCard from '@/components/FrontEnd/components/NewsCard.vue';
 
 
 </script>

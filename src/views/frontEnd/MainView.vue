@@ -10,6 +10,6 @@
 
 <script setup>
 
-import SectionNavBarVue from '@/components/sections/SectionNavBar.vue';
-import SectionFooter from '@/components/sections/SectionFooter.vue';
+import SectionNavBarVue from '@/components/FrontEnd/sections/SectionNavBar.vue';
+import SectionFooter from '@/components/FrontEnd/sections/SectionFooter.vue';
 </script>

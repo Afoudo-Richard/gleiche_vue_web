@@ -46,7 +46,7 @@
                             <RouterLink v-if="!link.sub_links" :to="link.to">
                                 <span class="text-lg xl:text-2xl">{{ link.text }}</span>
                             </RouterLink>
-                            <span v-else @click="open = !open"
+                            <span v-else @click="open = !open" ref="target"
                                 class="text-lg xl:text-2xl flex items-center gap-2 cursor-pointer">
                                 <span>{{ link.text }}</span>
                                 <span class="transition-transform duration-200 transform text-sm"
@@ -89,7 +89,7 @@
 
             <div
                 class="w-9/12 h-full bg-white rounded-tl-3xl border-l-4 border-secondary flex flex-col gap-2 font-patrick-hand px-5 pt-12">
-                <div class="mb-5" @click="open_side_nav = false">
+                <div class="mb-5" @click="open_side_nav = false" >
                     <span class="text-2xl text-secondary">
                         <i class="fa-solid fa-xmark"></i>
                     </span>
@@ -120,6 +120,7 @@
 
 
 <script setup>
+import { onClickOutside } from '@vueuse/core'
 import LinkButton from '../components/LinkButton.vue';
 import { ref, onMounted } from 'vue'
 
@@ -127,6 +128,9 @@ const showBar = ref(false)
 const open = ref(false)
 const open_side_nav = ref(false)
 const openDropdown = ref(false)
+const target = ref(null)
+
+onClickOutside(target, (event) => open.value=false)
 
 const nav_links = ref([
     {
@@ -154,7 +158,7 @@ const nav_links = ref([
                 text: 'Our Executives',
             },
             {
-                to: '/login',
+                to: '/volunteers',
                 text: 'Our Volunteers',
             },
             {

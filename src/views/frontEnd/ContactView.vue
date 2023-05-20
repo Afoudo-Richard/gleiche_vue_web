@@ -15,6 +15,6 @@
 </template>
 
 <script setup>
-import PageBanner from '../../components/components/PageBanner.vue'
+import PageBanner from '@/components/FrontEnd/components/PageBanner.vue'
 
 </script>

@@ -13,14 +13,26 @@
 </template>
 
 <script setup>
-import SectionWhoAreWeVue from '../../components/sections/SectionWhoAreWe.vue';
-import SectionWhatWeDoVue from '../../components/sections/SectionWhatWeDo.vue';
-import SectionDonationBanner from '../../components/sections/SectionDonationBanner.vue';
-import SectionVolunteersVue from '../../components/sections/SectionVolunteers.vue';
-import SectionTestimonialVue from '../../components/sections/SectionTestimonial.vue';
-import SectionNewsBlogVue from '../../components/sections/SectionNewsBlog.vue';
-import SectionUpcomingEvents from '../../components/sections/SectionUpcomingEvents.vue';
-import SectionContactUs from '../../components/sections/SectionContactUs.vue';
-import SectionSponsorsVue from '../../components/sections/SectionSponsors.vue';
+import SectionWhoAreWeVue from '@/components/FrontEnd/sections/SectionWhoAreWe.vue';
+import SectionWhatWeDoVue from '@/components/FrontEnd/sections/SectionWhatWeDo.vue';
+import SectionDonationBanner from '@/components/FrontEnd/sections/SectionDonationBanner.vue';
+import SectionVolunteersVue from '@/components/FrontEnd/sections/SectionVolunteers.vue';
+import SectionTestimonialVue from '@/components/FrontEnd/sections/SectionTestimonial.vue';
+import SectionNewsBlogVue from '@/components/FrontEnd/sections/SectionNewsBlog.vue';
+import SectionUpcomingEvents from '@/components/FrontEnd/sections/SectionUpcomingEvents.vue';
+import SectionContactUs from '@/components/FrontEnd/sections/SectionContactUs.vue';
+import SectionSponsorsVue from '@/components/FrontEnd/sections/SectionSponsors.vue';
+
+
+import { onBeforeMount,onMounted } from 'vue';
+import { useVolunteerStore } from '@/stores/volunteers'
+
+
+const volunteersStore = useVolunteerStore()
+
+onMounted(async () => {
+    await volunteersStore.getVolunteers(3)
+})
+
 
 </script>

@@ -5,11 +5,11 @@ import Parse from 'parse/dist/parse.min.js';
 
 // const configStore = useConfigStore()
 
-export const useExecutivesStore = defineStore('executives', {
+export const useVolunteerStore = defineStore('volunteer', {
     state: () => {
         return {
-            executives: [],
-            is_loading_executives: false,
+            volunteers: [],
+            is_loading_volunteer: false,
             has_reached_max : false,
             fetch_limit: 7,
             load_more: false,
@@ -21,43 +21,35 @@ export const useExecutivesStore = defineStore('executives', {
 
     actions: {
 
-        async getExe(){
-            console.log("Inside here")
-            this.debounce(async()=> await this.getExecutives());
-        },
-
-
-        async getExecutives() {
+        async getVolunteers(limit) {
 
             if(this.has_reached_max) return
 
-            if (this.executives.length == 0) {
+            if (this.volunteers.length == 0) {
 
-                this.is_loading_executives = true
-                this.executives = []
-                const results = await this.fetchExecutives();
-                this.executives = results
-                this.has_reached_max = results.length < this.fetch_limit ? true : false
-                this.is_loading_executives = false
+                this.is_loading_volunteer = true
+                this.volunteers = []
+                console.log(limit)
+                const fetch_limit = limit != null ? limit : 0
+                console.log(fetch_limit)
+                const results = await this.fetchVolunteers(0,fetch_limit);
+                this.volunteers = results
+                this.has_reached_max = results.length < this.configStore.fetch_limit ? true : false
+                this.is_loading_volunteer = false
                 return
             }
 
             this.load_more = true
-            const results = await this.fetchExecutives(this.executives.length);
+            const results = await this.fetchVolunteer(this.volunteer.length);
             console.log(results.length)
-            this.has_reached_max = results.length < this.fetch_limit ? true : false
-            this.executives = this.executives.concat(results)  // or use spread operator
+            this.has_reached_max = results.length < this.configStore.fetch_limit ? true : false
+            this.volunteers = this.volunteers.concat(results)  // or use spread operator
             this.load_more = false
-
-
-            // ===========
-
-
         },
 
-        async fetchExecutives(startIndex = 0, limit = this.fetch_limit) {
-            const executives = Parse.Object.extend("executives");
-            const query = new Parse.Query(executives);
+        async fetchVolunteers(startIndex = 0, limit = this.configStore.fetch_limit) {
+            const volunteer = Parse.Object.extend("volunteers");
+            const query = new Parse.Query(volunteer);
             query.limit(limit)
             query.skip(startIndex)
             let data = []
@@ -70,8 +62,6 @@ export const useExecutivesStore = defineStore('executives', {
                 data.push({
                     id: object.id,
                     full_name: object.get('full_name'),
-                    bio: object.get('bio'),
-                    position: object.get('position'),
                     email: object.get('email'),
                     img_thumb: img_url
                 })

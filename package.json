@@ -8,22 +8,23 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tinymce/tinymce-vue": "^4.0.7",
+    "@vuelidate/core": "^2.0.0",
+    "@vuelidate/validators": "^2.0.0",
+    "@vueuse/core": "^10.1.2",
     "autoprefixer": "^10",
+    "element-plus": "^2.2.30",
+    "moment": "^2.29.4",
+    "parse": "^4.0.1",
     "pinia": "^2.0.32",
     "postcss": "^8",
     "swiper": "^9.0.5",
     "tailwindcss": "^3",
-    "vue": "^3.2.47",
-    "vue-router": "^4.1.6",
-    "@tinymce/tinymce-vue": "^4.0.7",
     "tinymce": "^6.3.1",
-    "@vuelidate/core": "^2.0.0",
-    "@vuelidate/validators": "^2.0.0",
-    "element-plus": "^2.2.30",
-    "moment": "^2.29.4",
-    "parse": "^4.0.1",
+    "vue": "^3.2.47",
+    "vue-carousel-3d": "^1.0.1",
+    "vue-router": "^4.1.6",
     "vue-spinner": "^1.0.4"
-
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.0.0",

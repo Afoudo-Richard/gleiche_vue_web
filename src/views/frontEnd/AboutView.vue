@@ -18,6 +18,6 @@
 
 <script setup>
 import { ref } from 'vue'
-import PageBanner from '../../components/components/PageBanner.vue'
+import PageBanner from '@/components/FrontEnd/components/PageBanner.vue'
 const about_us = ref('<div> Hi this is gleiche foundation </div>')
 </script>

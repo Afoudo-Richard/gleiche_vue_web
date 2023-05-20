@@ -43,7 +43,7 @@
 </template>
 
 <script setup>
-import PageBanner from '../../components/components/PageBanner.vue'
+import PageBanner from '@/components/FrontEnd/components/PageBanner.vue'
 import { ref, computed, onBeforeUnmount } from 'vue';
 import { ElNotification } from 'element-plus'
 import { useVuelidate } from '@vuelidate/core'
