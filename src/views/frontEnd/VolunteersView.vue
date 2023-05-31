@@ -3,7 +3,6 @@
         <SectionTitleVue title="Volunteers"></SectionTitleVue>
 
         <div class="mb-8">
-            <div>{{ volunteersStore.has_reached_max }}</div>
 
 
             <div v-if="!volunteersStore.is_loading_volunteer"
@@ -35,12 +34,12 @@
             </div>
 
 
-           <div v-if="!volunteersStore.is_loading_executives">
-            <div v-if="!volunteersStore.has_reached_max" class="mt-10 flex justify-center">
-                <LinkButton  :is_link="false" text="Load More" @click="loadMore"></LinkButton>
+            <div v-if="!volunteersStore.is_loading_executives">
+                <div v-if="!volunteersStore.has_reached_max" class="mt-10 flex justify-center">
+                    <LinkButton :is_link="false" text="Load More" @click="loadMore"></LinkButton>
 
+                </div>
             </div>
-           </div>
         </div>
     </div>
 </template>
@@ -50,30 +49,65 @@ import SectionTitleVue from '@/components/FrontEnd/components/SectionTitle.vue';
 import LinkButton from '@/components/FrontEnd/components/LinkButton.vue';
 import VolunteerCard from '@/components/FrontEnd/components/VolunteerCard.vue';
 import PulseLoader from 'vue-spinner/src/PulseLoader.vue'
-
-
 import { useVolunteerStore } from '@/stores/volunteers'
-
 import { useConfigStore } from '@/stores/config'
+import { ref, watch, onMounted, onUnmounted, watchEffect, getCurrentInstance } from 'vue'
+import { useRoute, useRouter, onBeforeRouteLeave, onBeforeRouteUpdate, } from 'vue-router'
 
 
-import { ref, onMounted, onUnmounted } from 'vue'
 
-
+const route = useRoute()
 
 
 const volunteersStore = useVolunteerStore()
 
 const configStore = useConfigStore()
+const triggerWatcher = ref(0)
 
-const loadMore = async ()=> {
+
+
+watch(
+    () => route.name,
+    // route,
+    // triggerWatcher,
+    // async (name) => {
+    //     console.log('inside volunteer watcher --------------')
+    //     console.log(name)
+    //     if (name === 'volunteers') {
+    //         await volunteersStore.getVolunteers();
+    //     }
+
+    // }
+    async (name) => {
+        console.log('inside volunteer watcher --------------')
+        console.log(name)
+
+        await volunteersStore.getVolunteers();
+
+
+    }, { immediate: true }
+
+//     beforeRouteEnter(to, from, next) {
+//     getPost(to.params.id, (err, post) => {
+//       // `setData` is a method defined below
+//       next(vm => vm.setData(err, post))
+//     })
+//   }
+)
+
+
+
+const loadMore = async () => {
     await volunteersStore.getVolunteers()
 }
 
 
-onMounted(async () => {
-    await volunteersStore.getVolunteers()
-})
+if (getCurrentInstance()) {
+    onMounted(async () => {
+        console.log("Mounted called gleiche volunteers")
+        // await volunteersStore.getVolunteers()
+    })
+}
 
 
 </script>

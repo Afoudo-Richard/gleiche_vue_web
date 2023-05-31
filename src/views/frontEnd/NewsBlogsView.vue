@@ -1,52 +1,121 @@
 <template>
-    
+    <div class="container py-6 md:py-3 flex flex-col gap-4 min-h-screen">
+        <SectionTitleVue title="News & Blog"></SectionTitleVue>
 
-<div class="container py-6 md:py-12 flex flex-col gap-4">
-    <SectionTitleVue title="News" ></SectionTitleVue>
-    <div class="py-12">
-        <!-- {{ forloop.counter }} -->
-        
-        <div class="w-full flex flex-wrap">
-            
-            <!-- <div class="w-full lg:w-4/12 px-0 lg:px-3">
-                {% include 'frontend/components/news_item.html' with item=item  %}
-            </div> -->
-            
-            
-        </div>
+        <div class="mb-8">
 
-        <!-- <div class="pagination flex items-center justify-center w-full mt-10">
-            <div class="flex-col items-center justify-center w-full">
-                <div class="flex justify-center mb-4 text-lg md:text-xl">
-                    Page {{ news_blogs.number }} of {{ news_blogs.paginator.num_pages }}.
-                </div>
-                    <div class="flex justify-center">
-                        {% if news_blogs.has_previous %}
-                            <a href="?page=1" class="border px-3 py-1 border-primary-50 rounded-lg text-sm md:text-xl">first</a>
-                            <a href="?page={{ news_blogs.previous_page_number }}" class="border px-3 py-1 border-primary bg-secondary rounded-lg text-white ml-2"><i class="fa-solid fa-arrow-left"></i></a>
-                        {% endif %}
-                
-                        {% if news_blogs.has_previous and news_blogs.has_next %}
-                            <div class="mx-3"></div>
-                        {% endif %}
 
-                        {% if news_blogs.has_next %}
-                            <a href="?page={{ news_blogs.next_page_number }}" class="border px-3 py-1 border-primary bg-secondary rounded-lg text-white mr-2" ><i class="fa-solid fa-arrow-right"></i></a>
-                            <a href="?page={{ news_blogs.paginator.num_pages }}" class="border px-3 py-1 border-primary-50 rounded-lg">last</a>
-                        {% endif %}
-                    </div>
+            <div v-if="!newsBlogStore.is_loading_news_blogs"
+                class="w-full gap-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+
+                <NewsCard v-for="(item, index) in newsBlogStore.news_blogs" :item="item" :index="index"
+                    :key="item.id" />
             </div>
-        </div> -->
+
+            <div v-else class="w-full gap-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+                <el-skeleton v-for="i in 6" style="width: 100%" :loading="loading" animated>
+                    <template #template>
+                        <el-skeleton-item variant="image" style="width: 100%; height: 240px" />
+                        <div style="padding: 14px">
+                            <el-skeleton-item variant="h3" style="width: 50%" />
+                            <div
+                                style="display: flex; align-items: center;justify-items: space-between; margin-top: 16px; height: 16px;">
+                                <el-skeleton-item variant="text" style="margin-right: 16px" />
+                                <el-skeleton-item variant="text" style="width: 30%" />
+                            </div>
+                        </div>
+                    </template>
+
+                </el-skeleton>
+            </div>
+
+            <div v-if="newsBlogStore.load_more" class="mt-7 flex justify-center">
+                <pulse-loader :loading="is_loading" :color="configStore.primaryColor" :size="size"></pulse-loader>
+            </div>
+
+
+            <div v-if="!newsBlogStore.is_loading_news_blogs">
+                <div v-if="!newsBlogStore.has_reached_max" class="mt-10 flex justify-center">
+                    <LinkButton :is_link="false" text="Load More" @click="loadMore"></LinkButton>
+
+                </div>
+            </div>
+        </div>
     </div>
-</div>
-
-
-
 </template>
-
+    
 <script setup>
 import SectionTitleVue from '@/components/FrontEnd/components/SectionTitle.vue';
+import LinkButton from '@/components/FrontEnd/components/LinkButton.vue';
 import NewsCard from '@/components/FrontEnd/components/NewsCard.vue';
+import PulseLoader from 'vue-spinner/src/PulseLoader.vue'
+import { useNewsBlogsStore } from '@/stores/news_blogs'
+import { useConfigStore } from '@/stores/config'
+import { useDebounceFn } from '@vueuse/core'
+import { useRoute, useRouter } from 'vue-router'
 
+
+import { ref, watch, onMounted, onUnmounted, onBeforeMount } from 'vue'
+
+
+const route = useRoute()
+const router = useRouter()
+
+const  newsBlogStore = useNewsBlogsStore()
+const configStore = useConfigStore()
+
+
+router.beforeEnter = (to, from)=>{
+    console.log("before enter")
+    return true
+}
+
+
+// watch(
+//     () => route.path,
+//     async (name) => {
+//         console.log('inside watcher --------------')
+//         console.log(name)
+//         if (name === '/executives') {
+//             await executivesStore.getExecutives();
+
+//         }
+        
+//     }
+// )
+
+const loadMore = async () => {
+    // await executivesStore.getExecutives()
+}
+
+const debouncedFn = useDebounceFn(async () => {
+    await newsBlogStore.getNewsBlogs();
+}, 300)
+
+
+const handleScroll = async () => {
+    let hasReachedMaxScrollExtent = document.documentElement.scrollTop + window.innerHeight >= (0.6 * document.documentElement.offsetHeight);
+    // let hasReachedMaxScrollExtent = document.documentElement.scrollTop + document.documentElement.clientHeight >= (0.65 * document.documentElement.offsetHeight);
+    if (hasReachedMaxScrollExtent) {
+        debouncedFn()
+        // configStore.debounce(await executivesStore.getExecutives())
+        // await executivesStore.getExecutives(); 
+    }
+}
+
+
+onBeforeMount(async () => {
+    await newsBlogStore.getNewsBlogs();
+})
+
+onMounted(async () => {
+    window.addEventListener("scroll", handleScroll)
+    // await executivesStore.getExecutives()
+
+})
+
+onUnmounted(() => {
+    window.removeEventListener("scroll", handleScroll)
+})
 
 </script>

@@ -70,26 +70,21 @@ router.beforeEnter = (to, from)=>{
     return true
 }
 
-beforeEnter: (to, from) => {
-      // reject the navigation
-      return false
-    },
 
 watch(
     () => route.path,
     async (name) => {
-        console.log('inside water')
+        console.log('inside watcher --------------')
         console.log(name)
-        if (name === 'executives') {
+        if (name === '/executives') {
             await executivesStore.getExecutives();
-
         }
         
     }
 )
 
 const loadMore = async () => {
-    // await executivesStore.getExecutives()
+    await executivesStore.getExecutives()
 }
 
 const debouncedFn = useDebounceFn(async () => {
@@ -101,13 +96,12 @@ const handleScroll = async () => {
     let hasReachedMaxScrollExtent = document.documentElement.scrollTop + window.innerHeight >= (0.6 * document.documentElement.offsetHeight);
     // let hasReachedMaxScrollExtent = document.documentElement.scrollTop + document.documentElement.clientHeight >= (0.65 * document.documentElement.offsetHeight);
     if (hasReachedMaxScrollExtent) {
-        debouncedFn()
+        // debouncedFn()
         // configStore.debounce(await executivesStore.getExecutives())
         // await executivesStore.getExecutives(); 
     }
 }
 
-onBeforeMount
 onBeforeMount(async () => {
     await executivesStore.getExecutives()
 

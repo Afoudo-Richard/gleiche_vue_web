@@ -1,8 +1,8 @@
 <template>
-    <RouterLink to="{% url 'read_news_blog' item.id item.slug %}">
+    <RouterLink :to="{ name: 'news_details', params:{id: item.id, title:joinTitle(item.title)} }">
         <div class="bg-white shadow-md border border-gray-200 rounded-lg mb-5">
 
-            <div class="w-full h-[13rem] overflow-hidden" >
+            <div class="w-full h-[13rem] overflow-hidden">
                 <img class="rounded-t-lg w-full h-full object-cover" :src='item.img_thumb' alt="">
 
             </div>
@@ -16,18 +16,36 @@
 
                 <p class="font-normal text-gray-700 mb-3 text-xs">{{ item.title }}</p>
 
-                <a href="{% url 'read_news_blog' item.id item.slug %}"
-                    class="inline-block px-4 py-1.5 bg-primary hover:bg-primary-200 hover:shadow-2xl transition-all rounded-md text-white text-sm">
-                    Read More
-                </a>
+
+                <LinkButton :to="{ name: 'news_details', params:{id: item.id, title:joinTitle(item.title)} }" text="Read More" class="mt-3"></LinkButton>
+
             </div>
         </div>
     </RouterLink>
 </template>
 
 <script setup>
+import { computed } from 'vue'
+
+import LinkButton from '@/components/FrontEnd/components/LinkButton.vue'
 const props = defineProps({
     item: Object
 })
+
+const joinTitle = (title)=>{
+    return title.split(" ").join("-")
+}
+
+// const title = computed({
+//   // getter
+//   get() {
+//     return item.title.split("").join("-")
+//   },
+//   // setter
+// //   set(newValue) {
+// //     // Note: we are using destructuring assignment syntax here.
+// //     [firstName.value, lastName.value] = newValue.split(' ')
+// //   }
+// })
 
 </script>

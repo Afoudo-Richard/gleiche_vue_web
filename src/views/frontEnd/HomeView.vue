@@ -1,6 +1,7 @@
 
 
 <template>
+  <!-- <SectionHero></SectionHero> -->
   <SectionWhoAreWeVue></SectionWhoAreWeVue>
   <SectionWhatWeDoVue></SectionWhatWeDoVue>
   <SectionDonationBanner></SectionDonationBanner>
@@ -13,6 +14,7 @@
 </template>
 
 <script setup>
+// import SectionHero from '@/components/FrontEnd/sections/SectionHero.vue';
 import SectionWhoAreWeVue from '@/components/FrontEnd/sections/SectionWhoAreWe.vue';
 import SectionWhatWeDoVue from '@/components/FrontEnd/sections/SectionWhatWeDo.vue';
 import SectionDonationBanner from '@/components/FrontEnd/sections/SectionDonationBanner.vue';
@@ -24,14 +26,47 @@ import SectionContactUs from '@/components/FrontEnd/sections/SectionContactUs.vu
 import SectionSponsorsVue from '@/components/FrontEnd/sections/SectionSponsors.vue';
 
 
-import { onBeforeMount,onMounted } from 'vue';
+import { onBeforeMount, onMounted, watch } from 'vue';
 import { useVolunteerStore } from '@/stores/volunteers'
+import { useNewsBlogsStore } from '@/stores/news_blogs'
+import { useRoute, useRouter } from 'vue-router'
+
+const route = useRoute()
+
+
 
 
 const volunteersStore = useVolunteerStore()
+const newsBlogStore = useNewsBlogsStore()
 
-onMounted(async () => {
-    await volunteersStore.getVolunteers(3)
+// watch(
+//     () => route.name,
+//     async (name) => {
+//         console.log('inside home watcher --------------')
+//         console.log(name)
+//         if (name === 'home') {
+//             await volunteersStore.getVolunteers(3);
+
+//         }
+
+//     }
+// )
+
+watch(
+  route,
+  async (name) => {
+    console.log('inside home watcher --------------')
+    console.log(name)
+
+    // await volunteersStore.getVolunteers(3);
+
+  }
+)
+
+onBeforeMount(async () => {
+  // await volunteersStore.getVolunteers(3)
+  // await newsBlogStore.getNewsBlogs()
+
 })
 
 

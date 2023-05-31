@@ -21,7 +21,7 @@ const executivesStore = useExecutivesStore()
 
 onBeforeMount(async () => {
   userStore.initializeUserStore()
-  await appStore.getNewsBlog()
+  // await appStore.getNewsBlog()
   await appStore.getUpcomingEvents()
   // await executivesStore.getExecutives()
 

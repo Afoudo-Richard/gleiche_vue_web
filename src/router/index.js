@@ -9,6 +9,8 @@ import ContactView from '../views/frontEnd/ContactView.vue'
 import LoginView from '../views/frontEnd/LoginView.vue'
 import ExecutivesView from '../views/frontEnd/ExecutivesView.vue'
 import VolunteersView from '../views/frontEnd/VolunteersView.vue'
+import NewsBlogDetailView from '../views/frontEnd/NewsBlogDetailView.vue'
+
 
 // Back End
 
@@ -17,6 +19,10 @@ import DashboardView from '../views/backEnd/DashboardView.vue'
 
 
 import { useUserStore } from '@/stores/user'
+import { useExecutivesStore } from '@/stores/executives'
+import { useVolunteerStore } from '@/stores/volunteers'
+
+
 
 
 const router = createRouter({
@@ -30,10 +36,22 @@ const router = createRouter({
         {
           path: '',
           component: HomeView,
+          beforeEnter: async (to, from) => {
+            console.log("%%%%%%%%%%%%%%% inside before route home &&&&&&&&")
+            const volunteersStore = useVolunteerStore()
+            await volunteersStore.getVolunteers(3)
+            console.log(volunteersStore.volunteers.length)
+            return true
+          },
         },
         {
           path: 'about',
           component: AboutView,
+        },
+        {
+          path: 'detail/:title/:id',
+          name: 'news_details',
+          component: NewsBlogDetailView
         },
         {
           path: 'news-blogs',
@@ -43,10 +61,24 @@ const router = createRouter({
           name: 'executives',
           path: 'executives',
           component: ExecutivesView,
+          // beforeEnter: async (to, from) => {
+          //   const executivesStore = useExecutivesStore()
+          //   await executivesStore.getExecutives();
+
+          //   return true
+          // },
         },
         {
           path: 'volunteers',
+          name: 'volunteers',
           component: VolunteersView,
+          // beforeEnter: async (to, from) => {
+          //   console.log("%%%%%%%%%%%%%%% inside before enter voluteers route &&&&&&&&")
+          //   const volunteersStore = useVolunteerStore()
+          //   await volunteersStore.getVolunteers()
+          //   console.log(volunteersStore.volunteers.length)
+          //   return true
+          // },
         },
         {
           path: 'contact',
@@ -105,7 +137,26 @@ const router = createRouter({
   },
 })
 
-router.beforeEach((to, from, next) => {
+router.beforeEach(async (to, from, next) => {
+
+  // console.log(`To path name ${to.path}`)
+  // const volunteersStore = useVolunteerStore()
+
+
+  // switch (to.path) {
+  //   case '/':
+  //     console.log("%%%%%%%%%%%%%%% inside before enter voluteers route &&&&&&&&")
+  //     await volunteersStore.getVolunteers(4)
+  //     break;
+  //   case '/volunteers':
+  //     console.log("%%%%%%%%%%%%%%% inside before enter voluteers route &&&&&&&&")
+  //     await volunteersStore.getVolunteers()
+  //     break;
+
+  //   default:
+  //     break;
+  // }
+
   const userStore = useUserStore()
 
   if (to.meta.requireLogin && !userStore.is_authenticated) {

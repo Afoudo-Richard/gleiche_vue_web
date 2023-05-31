@@ -3,35 +3,11 @@
         <div class="container flex flex-col justify-center items-center ">
 
             <SectionTitleVue title="News & Blog"></SectionTitleVue>
-            <!-- {% if news_blogs %}
-            <div class="w-full flex flex-wrap">
-                {% for item in news_blogs %}
-                <div class="w-full lg:w-4/12 px-0 lg:px-3">
-                    {% include 'frontend/components/news_item.html' with item=item %}
-                </div>
-                {% endfor %}
 
-            </div>
-
-            <div class="mt-4">
-                {% url 'news_blog' as action_url %}
-                {% include 'frontend/components/link_button.html' with text="See All" link=action_url %}
-            </div>
-            {% else %}
-            <div class="w-full">
-                <div class="flex justify-center">
-                    <h5 class="text-lg">
-                        No News posted
-                    </h5>
-                </div>
-            </div>
-            {% endif %} -->
-            
-
-            <div v-if="!appStore.is_news_blog_loading"
+            <div v-if="!newsBlogStore.is_loading_news_blogs"
                 class="w-full gap-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
 
-                <NewsCard v-for="(item, index) in appStore.news_blog" :item="item" :index="index" :key="item.id" />
+                <NewsCard v-for="(item, index) in newsBlogStore.news_blogs" :item="item" :index="index" :key="item.id" />
             </div>
 
             <div v-else class="w-full gap-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
@@ -52,7 +28,7 @@
             </div>
 
             <div class="mt-4">
-                <!-- <LinkButton text="See All" :to="{ name: 'login' }"></LinkButton> -->
+                <LinkButton text="See All" :to="{ path: '/news-blogs' }"></LinkButton>
             </div>
 
 
@@ -66,8 +42,12 @@ import NewsCard from '../components/NewsCard.vue';
 import LinkButton from '../components/LinkButton.vue';
 
 import {useAppStore} from '@/stores/app'
+import { useNewsBlogsStore } from '@/stores/news_blogs'
+
 
 const appStore = useAppStore()
+const  newsBlogStore = useNewsBlogsStore()
+
 
 
 </script>

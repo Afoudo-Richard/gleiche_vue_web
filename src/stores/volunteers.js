@@ -21,26 +21,37 @@ export const useVolunteerStore = defineStore('volunteer', {
 
     actions: {
 
-        async getVolunteers(limit) {
+        async getVolunteers(limit = this.configStore.fetch_limit) {
+
+            // if (typeof limit !== undefined) {
+            //     console.log(typeof limit)
+            //     console.log("((((((( when limit is given and not 0 ))))))))))))")
+            //     this.is_loading_volunteer = true
+            //     this.volunteers = []
+            //     const results = await this.fetchVolunteers(0, limit);
+            //     this.volunteers = results
+            //     this.has_reached_max = results.length < this.configStore.fetch_limit ? true : false
+            //     this.is_loading_volunteer = false
+            //     return
+            // }
 
             if(this.has_reached_max) return
 
             if (this.volunteers.length == 0) {
-
+                console.log("((((((( when volunteer is 0 ))))))))))))")
                 this.is_loading_volunteer = true
                 this.volunteers = []
-                console.log(limit)
-                const fetch_limit = limit != null ? limit : 0
-                console.log(fetch_limit)
-                const results = await this.fetchVolunteers(0,fetch_limit);
+                const results = await this.fetchVolunteers(0,limit);
                 this.volunteers = results
                 this.has_reached_max = results.length < this.configStore.fetch_limit ? true : false
                 this.is_loading_volunteer = false
                 return
             }
 
+            console.log("((((((( when volunteer is not 0 ))))))))))))")
+
             this.load_more = true
-            const results = await this.fetchVolunteer(this.volunteer.length);
+            const results = await this.fetchVolunteers(this.volunteers.length);
             console.log(results.length)
             this.has_reached_max = results.length < this.configStore.fetch_limit ? true : false
             this.volunteers = this.volunteers.concat(results)  // or use spread operator
