@@ -10,6 +10,8 @@ import LoginView from '../views/frontEnd/LoginView.vue'
 import ExecutivesView from '../views/frontEnd/ExecutivesView.vue'
 import VolunteersView from '../views/frontEnd/VolunteersView.vue'
 import NewsBlogDetailView from '../views/frontEnd/NewsBlogDetailView.vue'
+import UpcomingEventsView from '../views/frontEnd/UpcomingEventsView.vue'
+
 
 
 // Back End
@@ -36,13 +38,8 @@ const router = createRouter({
         {
           path: '',
           component: HomeView,
-          beforeEnter: async (to, from) => {
-            console.log("%%%%%%%%%%%%%%% inside before route home &&&&&&&&")
-            const volunteersStore = useVolunteerStore()
-            await volunteersStore.getVolunteers(3)
-            console.log(volunteersStore.volunteers.length)
-            return true
-          },
+
+          
         },
         {
           path: 'about',
@@ -75,7 +72,19 @@ const router = createRouter({
           // beforeEnter: async (to, from) => {
           //   console.log("%%%%%%%%%%%%%%% inside before enter voluteers route &&&&&&&&")
           //   const volunteersStore = useVolunteerStore()
-          //   await volunteersStore.getVolunteers()
+          //   await volunteersStore.getVolunteers1()
+          //   console.log(volunteersStore.volunteers.length)
+          //   return true
+          // },
+        },
+        {
+          path: 'upcoming-events',
+          name: 'upcoming-events',
+          component: UpcomingEventsView,
+          // beforeEnter: async (to, from) => {
+          //   console.log("%%%%%%%%%%%%%%% inside before enter voluteers route &&&&&&&&")
+          //   const volunteersStore = useVolunteerStore()
+          //   await volunteersStore.getVolunteers1()
           //   console.log(volunteersStore.volunteers.length)
           //   return true
           // },

@@ -28,6 +28,8 @@ import SectionSponsorsVue from '@/components/FrontEnd/sections/SectionSponsors.v
 
 import { onBeforeMount, onMounted, watch } from 'vue';
 import { useVolunteerStore } from '@/stores/volunteers'
+import { useVolunteerStore1 } from '@/stores/volunteers1'
+
 import { useNewsBlogsStore } from '@/stores/news_blogs'
 import { useRoute, useRouter } from 'vue-router'
 
@@ -37,6 +39,8 @@ const route = useRoute()
 
 
 const volunteersStore = useVolunteerStore()
+const volunteersStore1 = useVolunteerStore1()
+
 const newsBlogStore = useNewsBlogsStore()
 
 // watch(
@@ -52,21 +56,23 @@ const newsBlogStore = useNewsBlogsStore()
 //     }
 // )
 
-watch(
-  route,
-  async (name) => {
-    console.log('inside home watcher --------------')
-    console.log(name)
+// watch(
+//   route,
+//   async (name) => {
+//     console.log('inside home watcher --------------')
+//     console.log(name)
 
-    // await volunteersStore.getVolunteers(3);
+//     // await volunteersStore.getVolunteers(3);
 
-  }
-)
+//   }
+// )
 
-onBeforeMount(async () => {
-  // await volunteersStore.getVolunteers(3)
+onMounted(async () => {
+  // await volunteersStore.getVolunteers1(3)
+  // await volunteersStore1.getVolunteers(3)
+
+
   // await newsBlogStore.getNewsBlogs()
-
 })
 
 

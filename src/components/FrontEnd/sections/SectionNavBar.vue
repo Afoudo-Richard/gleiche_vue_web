@@ -35,7 +35,11 @@
             <div
                 class="container py-2 flex justify-between items-center font-patrick-hand  bg-white w-full border-t border-gray-200">
                 <div class="w-10 h-10 lg:w-12 lg:h-12">
-                    <img class="w-full h-auto" src="@/assets/images/gleichefoundationLogo.png" alt="">
+                    <RouterLink :to="{ path: '/' }">
+
+                        <img class="w-full h-auto" src="@/assets/images/gleichefoundationLogo.png" alt="">
+                    </RouterLink>
+
                 </div>
 
                 <div class="hidden lg:block ">
@@ -89,7 +93,7 @@
 
             <div
                 class="w-9/12 h-full bg-white rounded-tl-3xl border-l-4 border-secondary flex flex-col gap-2 font-patrick-hand px-5 pt-12">
-                <div class="mb-5" @click="open_side_nav = false" >
+                <div class="mb-5" @click="open_side_nav = false">
                     <span class="text-2xl text-secondary">
                         <i class="fa-solid fa-xmark"></i>
                     </span>
@@ -111,7 +115,7 @@
                     </a>
                 </div>
                 <a href="#" class="text-lg xl:text-2xl">Donate</a>
-                
+
             </div>
         </div>
 
@@ -130,7 +134,7 @@ const open_side_nav = ref(false)
 const openDropdown = ref(false)
 const target = ref(null)
 
-onClickOutside(target, (event) => open.value=false)
+onClickOutside(target, (event) => open.value = false)
 
 const nav_links = ref([
     {

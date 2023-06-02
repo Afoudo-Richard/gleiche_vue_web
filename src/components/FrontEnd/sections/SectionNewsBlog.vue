@@ -4,14 +4,14 @@
 
             <SectionTitleVue title="News & Blog"></SectionTitleVue>
 
-            <div v-if="!newsBlogStore.is_loading_news_blogs"
+            <div v-if="!is_loading_news_blogs"
                 class="w-full gap-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
 
-                <NewsCard v-for="(item, index) in newsBlogStore.news_blogs" :item="item" :index="index" :key="item.id" />
+                <NewsCard v-for="(item, index) in news_blogs" :item="item" :index="index" :key="item.id" />
             </div>
 
             <div v-else class="w-full gap-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-                <el-skeleton v-for="i in 3" style="width: 100%" :loading="loading" animated>
+                <el-skeleton v-for="i in 3" style="width: 100%" :loading="true" animated>
                     <template #template>
                         <el-skeleton-item variant="image" style="width: 100%; height: 240px" />
                         <div style="padding: 14px">
@@ -43,10 +43,22 @@ import LinkButton from '../components/LinkButton.vue';
 
 import {useAppStore} from '@/stores/app'
 import { useNewsBlogsStore } from '@/stores/news_blogs'
+import { storeToRefs } from 'pinia'
+import { onMounted } from 'vue';
+
+
 
 
 const appStore = useAppStore()
 const  newsBlogStore = useNewsBlogsStore()
+const { news_blogs, is_loading_news_blogs, has_reached_max } = storeToRefs(newsBlogStore)
+const { getNewsBlogs } = newsBlogStore
+
+onMounted(async () => {
+    news_blogs.value = []
+    has_reached_max.value = false
+    await getNewsBlogs(3)
+})
 
 
 

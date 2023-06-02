@@ -4,9 +4,11 @@
 
             <SectionTitleVue title="Our Volunteer" subTitle="Meet Our Volunteers"></SectionTitleVue>
 
-            <div v-if="!volunteersStore.is_loading_volunteer" class="w-full gap-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+            <div v-if="!is_loading_volunteers"
+                class="w-full gap-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
 
-                <VolunteerCard v-for="(item, index) in volunteersStore.volunteers" :item="item" :index="index" :key="item.id" />
+                <VolunteerCard v-for="(item, index) in volunteers" :item="item" :index="index"
+                    :key="item.id" />
             </div>
 
             <div>
@@ -76,6 +78,8 @@
 import SectionTitleVue from '../components/SectionTitle.vue';
 import VolunteerCard from '../components/VolunteerCard.vue';
 import LinkButton from '@/components/FrontEnd/components/LinkButton.vue'
+import { onBeforeMount, onMounted, watch, ref } from 'vue';
+
 
 // Import Swiper Vue.js components
 import { Swiper, SwiperSlide } from 'swiper/vue';
@@ -83,11 +87,27 @@ import { Pagination } from 'swiper';
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
+import { storeToRefs } from 'pinia'
 
 
-import { useVolunteerStore } from '@/stores/volunteers'
+
+import { useVolunteerStore1 } from '@/stores/volunteers1'
 
 
-const volunteersStore = useVolunteerStore()
+const volunteersStore1 = useVolunteerStore1()
+
+// const is_loading_volunteers = ref(false)
+// const volunteers = ref([])
+
+
+const { volunteers, is_loading_volunteers, has_reached_max,load_more } = storeToRefs(volunteersStore1)
+const { getVolunteers } = volunteersStore1
+
+
+onMounted(async () => {
+    volunteers.value = []
+    has_reached_max.value = false
+    await getVolunteers(3)
+})
 
 </script>

@@ -4,22 +4,22 @@ import { ref } from 'vue'
 
 import Parse from 'parse/dist/parse.min.js';
 
-export const useNewsBlogsStore = defineStore('news_blogs', () => {
+export const useUpcomingEvents = defineStore('UpcomingEvents', () => {
 
-    const news_blogs = ref([])
-    const is_loading_news_blogs = ref(false)
-    const is_loading_single_news_blog = ref(false)
+    const upcoming_events = ref([])
+    const is_loading_upcoming_events = ref(false)
+    const is_loading_single_upcoming_event = ref(false)
     const has_reached_max = ref(false)
     const load_more = ref(false)
-    const single_news_blog = ref({})
+    const single_upcoming_event = ref({})
     const configStore = useConfigStore()
 
 
-    const getSingleNewsBlog = async (id) => {
-        is_loading_single_news_blog.value = true
+    const getSingleUpcomingEvent = async (id) => {
+        is_loading_single_upcoming_event.value = true
         try {
-            const news_blog = Parse.Object.extend("news_blog");
-            const query = new Parse.Query(news_blog);
+            const upcoming_event = Parse.Object.extend("upcoming_events");
+            const query = new Parse.Query(upcoming_event);
             const object = await query.get(id);
             let img_url = object.get('img_thumb') ? object.get('img_thumb').url() : 'https://gleichefoundation.org/public/img/logo.jpg'
 
@@ -27,47 +27,48 @@ export const useNewsBlogsStore = defineStore('news_blogs', () => {
             single_news_blog.value = {
                 id: object.id,
                 title: object.get('title'),
-                content: object.get('content'),
+                description: object.get('description'),
+                date_time: object.get('date_time'),
                 img_thumb: img_url
             }
         } catch (error) {
             console.log(error.message)
         }
 
-        is_loading_single_news_blog.value = false
+        is_loading_single_upcoming_event.value = false
 
     }
 
 
 
-    const getNewsBlogs = async (limit = configStore.fetch_limit) => {
+    const getUpcomingEvents = async (limit = configStore.fetch_limit) => {
 
 
         if (has_reached_max.value) return
 
 
-        if (news_blogs.value.length == 0) {
+        if (upcoming_events.value.length == 0) {
 
-            is_loading_news_blogs.value = true
-            news_blogs.value = []
-            const results = await fetchNewsBlogs(0, limit);
-            news_blogs.value = results
+            is_loading_upcoming_events.value = true
+            upcoming_events.value = []
+            const results = await fetchUpcomingEvent(0, limit);
+            upcoming_events.value = results
             has_reached_max.value = results.length < configStore.fetch_limit ? true : false
-            is_loading_news_blogs.value = false
+            is_loading_upcoming_events.value = false
             return
         }
 
         load_more.value = true
-        const results = await fetchNewsBlogs(news_blogs.value.length);
+        const results = await fetchUpcomingEvent(upcoming_events.value.length);
         console.log(results.length)
         has_reached_max.value = results.length < configStore.fetch_limit ? true : false
-        news_blogs.value = news_blogs.value.concat(results)  // or use spread operator
+        upcoming_events.value = upcoming_events.value.concat(results)  // or use spread operator
         load_more.value = false
     }
 
-    const fetchNewsBlogs = async (startIndex = 0, limit = configStore.fetch_limit) => {
-        const news_blogs = Parse.Object.extend("news_blog");
-        const query = new Parse.Query(news_blogs);
+    const fetchUpcomingEvent = async (startIndex = 0, limit = configStore.fetch_limit) => {
+        const upcoming_events = Parse.Object.extend("upcoming_events");
+        const query = new Parse.Query(upcoming_events);
         query.limit(limit)
         query.skip(startIndex)
         let data = []
@@ -82,7 +83,8 @@ export const useNewsBlogsStore = defineStore('news_blogs', () => {
                 data.push({
                     id: object.id,
                     title: object.get('title'),
-                    content: object.get('content'),
+                    description: object.get('description'),
+                    date_time: object.get('date_time'),
                     img_thumb: img_url
                 })
             }
@@ -96,7 +98,7 @@ export const useNewsBlogsStore = defineStore('news_blogs', () => {
     }
 
 
-    return { news_blogs, is_loading_news_blogs, is_loading_single_news_blog, has_reached_max, load_more, single_news_blog, getSingleNewsBlog, getNewsBlogs }
+    return { upcoming_events, is_loading_upcoming_events, is_loading_single_upcoming_event, has_reached_max, load_more, single_upcoming_event, getSingleUpcomingEvent, getUpcomingEvents }
 })
 
 

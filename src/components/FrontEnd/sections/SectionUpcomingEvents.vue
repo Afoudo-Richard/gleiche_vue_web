@@ -5,10 +5,14 @@
 
             <SectionTitleVue title="Upcoming Events"></SectionTitleVue>
 
-            <div v-if="!appStore.is_loading_upcoming_event"
+            <div v-if="!is_loading_upcoming_events"
                 class="w-full gap-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
 
-                <UpcomingEventCard v-for="(item, index) in appStore.upcoming_events" :item="item" :index="index" :key="item.id" />
+                <UpcomingEventCard v-for="(item, index) in upcoming_events" :item="item" :index="index" :key="item.id" />
+            </div>
+
+            <div>
+                <LinkButton :to="{ path: '/upcoming-events' }" text="See All" class="mt-3"></LinkButton>
             </div>
 
 
@@ -17,7 +21,6 @@
                 {% for item in upcomming_events %}
                 {% include 'frontend/components/upcoming_event_item.html' with item=item %}
                 {% endfor %}
-
             </div>
 
             <div class="mt-4">
@@ -42,10 +45,24 @@
 <script setup>
 import SectionTitleVue from '../components/SectionTitle.vue';
 import UpcomingEventCard from '../components/UpcomingEventCard.vue';
-import {useAppStore} from '@/stores/app'
+import LinkButton from '@/components/FrontEnd/components/LinkButton.vue'
 
-const appStore = useAppStore()
+import { storeToRefs } from 'pinia'
+import { useUpcomingEvents } from '@/stores/upcoming_events'
+import { onMounted } from 'vue';
 
+
+const upcomingEventsStore = useUpcomingEvents()
+const { upcoming_events, has_reached_max, is_loading_upcoming_events } = storeToRefs(upcomingEventsStore)
+const { getUpcomingEvents } = upcomingEventsStore
+
+
+
+onMounted(async () => {
+    upcoming_events.value = []
+    has_reached_max.value = false
+    await getUpcomingEvents(2)
+})
 
 
 </script>
