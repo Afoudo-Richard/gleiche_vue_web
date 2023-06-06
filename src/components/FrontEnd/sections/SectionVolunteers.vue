@@ -4,11 +4,45 @@
 
             <SectionTitleVue title="Our Volunteer" subTitle="Meet Our Volunteers"></SectionTitleVue>
 
-            <div v-if="!is_loading_volunteers"
-                class="w-full gap-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+            <!-- <div v-if="!is_loading_volunteers" class="w-full gap-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
 
-                <VolunteerCard v-for="(item, index) in volunteers" :item="item" :index="index"
-                    :key="item.id" />
+                <VolunteerCard v-for="(item, index) in volunteers" :item="item" :index="index" :key="item.id" />
+            </div> -->
+
+            <div v-if="!is_loading_volunteers" class="w-full relative">
+                <span @click="splide.go('-1')" class="absolute left-0 top-2/4 z-20 text-2xl md:text-3xl lg:text-5xl text-primary cursor-pointer">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </span>
+                <span @click="splide.go('+1')" class="absolute right-0 top-2/4 z-20 text-2xl md:text-3xl lg:text-5xl text-primary cursor-pointer">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </span>
+                <Splide class="p-0" ref="splide" :options="{
+                    type: 'loop',
+                    // drag   : 'free',
+                    perPage: 1,
+                    // focus  : 'center',
+                    arrows: false,
+                    gap: 12,
+                    // autoScroll: {
+                    //     speed: 1,
+                    // },
+                    pagination: false,
+                    mediaQuery: 'min',
+                    breakpoints: {
+                        768: {
+                            perPage: 2,
+                        },
+                        976: {
+                            perPage: 3,
+                        },
+                    },
+
+
+                }" aria-label="My Favorite Images">
+                    <SplideSlide v-for="( item, index ) in  volunteers">
+                        <VolunteerCard  :item="item" :index="index" :key="item.id" />
+                    </SplideSlide>
+                </Splide>
             </div>
 
             <div>
@@ -75,10 +109,17 @@
 </template>
 
 <script setup>
+import { Splide, SplideSlide } from '@splidejs/vue-splide';
+import '@splidejs/splide/dist/css/themes/splide-default.min.css';
+import '@splidejs/splide/dist/css/themes/splide-sea-green.min.css';
+import '@splidejs/splide/dist/css/themes/splide-skyblue.min.css';
+
 import SectionTitleVue from '../components/SectionTitle.vue';
 import VolunteerCard from '../components/VolunteerCard.vue';
 import LinkButton from '@/components/FrontEnd/components/LinkButton.vue'
 import { onBeforeMount, onMounted, watch, ref } from 'vue';
+
+const splide = ref();
 
 
 // Import Swiper Vue.js components
@@ -100,14 +141,14 @@ const volunteersStore1 = useVolunteerStore1()
 // const volunteers = ref([])
 
 
-const { volunteers, is_loading_volunteers, has_reached_max,load_more } = storeToRefs(volunteersStore1)
+const { volunteers, is_loading_volunteers, has_reached_max, load_more } = storeToRefs(volunteersStore1)
 const { getVolunteers } = volunteersStore1
 
 
 onMounted(async () => {
     volunteers.value = []
     has_reached_max.value = false
-    await getVolunteers(3)
+    await getVolunteers(6)
 })
 
 </script>

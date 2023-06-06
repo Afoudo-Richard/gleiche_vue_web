@@ -166,7 +166,7 @@ const nav_links = ref([
                 text: 'Our Volunteers',
             },
             {
-                to: '/login',
+                to: '/be-a-volunteer',
                 text: 'Be a Volunteer',
             },
             {

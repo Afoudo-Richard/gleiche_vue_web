@@ -167,6 +167,38 @@ export const useVolunteerStore = defineStore('volunteer', {
             return data
         },
 
+        async beVolunteer(data) {
+            const BeVolunteer = Parse.Object.extend("Volunteers");
+            const beVolunteer = new BeVolunteer();
+
+            beVolunteer.set("full_name", data.full_name)
+            beVolunteer.set("email", data.email)
+            beVolunteer.set("phone", data.phone)
+            beVolunteer.set("address", data.address)
+
+
+            try {
+                const result = await beVolunteer.save()
+            } catch (error) {
+                switch (error.code) {
+
+                    case 100:
+                        ElNotification({
+                            title: 'Error',
+                            message: 'Connection failed.Please Check your connection and continue',
+                            type: 'error',
+                        })
+                        break;
+                    default:
+                        ElNotification({
+                            title: 'Error',
+                            message: error.message + " | code : " + error.code,
+                            type: 'error',
+                        })
+                }
+            }
+        },
+
 
     },
     getters: {

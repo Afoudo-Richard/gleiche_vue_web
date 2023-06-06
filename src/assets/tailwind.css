@@ -8,8 +8,24 @@
   @apply inline-block px-4 py-1.5 bg-primary hover:bg-primary-200 hover:shadow-2xl transition-all rounded-md text-white text-sm cursor-pointer
 }
 
+.input {
+  @apply  mt-1 focus:border-primary block w-full shadow-sm sm:text-sm border-gray-300 rounded-md
+}
+
+.input_label {
+  @apply block text-sm font-medium text-gray-700
+}
+
+.input_error{
+  @apply text-red-500 text-xs italic py-2
+}
+
 .bg-happy{
   background-image: url('../assets/images/happy2.jpeg')
+}
+
+.bg-gleiche{
+  background-image: url('../assets/images/gleichefoundationLogo.png')
 }
 
 .input{

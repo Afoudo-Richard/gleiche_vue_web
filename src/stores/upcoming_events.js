@@ -24,7 +24,7 @@ export const useUpcomingEvents = defineStore('UpcomingEvents', () => {
             let img_url = object.get('img_thumb') ? object.get('img_thumb').url() : 'https://gleichefoundation.org/public/img/logo.jpg'
 
 
-            single_news_blog.value = {
+            single_upcoming_event.value = {
                 id: object.id,
                 title: object.get('title'),
                 description: object.get('description'),

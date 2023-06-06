@@ -116,11 +116,10 @@
         </svg>
         <div class="container flex flex-col justify-center items-center relative z-10">
 
-            <SectionTitleVue title="News & Blog"></SectionTitleVue>
+            <SectionTitleVue title="Popular Causes"></SectionTitleVue>
 
             <div v-if="!is_loading_news_blogs" class="w-full gap-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-
-                <NewsCard v-for="(item, index) in news_blogs" :item="item" :index="index" :key="item.id" />
+                <DonationCard v-for="(item, index) in news_blogs" :item="item" :index="index" :key="item.id" />
             </div>
 
             <div v-else class="w-full gap-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
@@ -151,7 +150,7 @@
 
 <script setup>
 import SectionTitleVue from '../components/SectionTitle.vue';
-import NewsCard from '../components/NewsCard.vue';
+import DonationCard from '../components/DonationCard.vue';
 import LinkButton from '../components/LinkButton.vue';
 
 import { useAppStore } from '@/stores/app'

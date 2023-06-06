@@ -50,11 +50,13 @@ import { useVuelidate } from '@vuelidate/core'
 import { required, email } from '@vuelidate/validators'
 import Parse from 'parse/dist/parse.min.js';
 import PulseLoader from 'vue-spinner/src/PulseLoader.vue'
-
 import { useRouter } from 'vue-router'
+import { useConfigStore } from '@/stores/config'
+
 
 
 const router = useRouter()
+const configStore = useConfigStore()
 
 
 const user_email = ref('')

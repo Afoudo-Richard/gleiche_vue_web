@@ -11,6 +11,12 @@ import ExecutivesView from '../views/frontEnd/ExecutivesView.vue'
 import VolunteersView from '../views/frontEnd/VolunteersView.vue'
 import NewsBlogDetailView from '../views/frontEnd/NewsBlogDetailView.vue'
 import UpcomingEventsView from '../views/frontEnd/UpcomingEventsView.vue'
+import ExecutiveDetail from '../views/frontEnd/ExecutiveDetail.vue'
+import UpcomingEventDetail from '../views/frontEnd/UpcomingEventDetail.vue'
+import BeVolunteer from '../views/frontEnd/BeVolunteer.vue'
+
+
+
 
 
 
@@ -66,28 +72,29 @@ const router = createRouter({
           // },
         },
         {
+          path: 'executive/:id',
+          name: 'executive_detail',
+          component: ExecutiveDetail
+        },
+        {
           path: 'volunteers',
           name: 'volunteers',
           component: VolunteersView,
-          // beforeEnter: async (to, from) => {
-          //   console.log("%%%%%%%%%%%%%%% inside before enter voluteers route &&&&&&&&")
-          //   const volunteersStore = useVolunteerStore()
-          //   await volunteersStore.getVolunteers1()
-          //   console.log(volunteersStore.volunteers.length)
-          //   return true
-          // },
+        },
+        {
+          path: 'be-a-volunteer',
+          name: 'be_a_volunteer',
+          component: BeVolunteer,
         },
         {
           path: 'upcoming-events',
           name: 'upcoming-events',
           component: UpcomingEventsView,
-          // beforeEnter: async (to, from) => {
-          //   console.log("%%%%%%%%%%%%%%% inside before enter voluteers route &&&&&&&&")
-          //   const volunteersStore = useVolunteerStore()
-          //   await volunteersStore.getVolunteers1()
-          //   console.log(volunteersStore.volunteers.length)
-          //   return true
-          // },
+        },
+        {
+          path: 'upcoming-event/:id',
+          name: 'upcoming_event_detail',
+          component: UpcomingEventDetail
         },
         {
           path: 'contact',

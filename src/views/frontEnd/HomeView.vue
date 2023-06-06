@@ -1,29 +1,32 @@
 
 
 <template>
-  <!-- <SectionHero></SectionHero> -->
+  <SectionHero></SectionHero>
   <SectionWhoAreWeVue></SectionWhoAreWeVue>
   <SectionWhatWeDoVue></SectionWhatWeDoVue>
   <SectionDonationBanner></SectionDonationBanner>
+  <SectionPrograms></SectionPrograms>
   <SectionVolunteersVue></SectionVolunteersVue>
   <SectionTestimonialVue></SectionTestimonialVue>
   <SectionNewsBlogVue></SectionNewsBlogVue>
   <SectionUpcomingEvents></SectionUpcomingEvents>
   <SectionContactUs></SectionContactUs>
-  <SectionSponsorsVue></SectionSponsorsVue>
+  <!-- <SectionSponsorsVue></SectionSponsorsVue> -->
 </template>
 
 <script setup>
-// import SectionHero from '@/components/FrontEnd/sections/SectionHero.vue';
+import SectionHero from '@/components/FrontEnd/sections/SectionHero.vue';
 import SectionWhoAreWeVue from '@/components/FrontEnd/sections/SectionWhoAreWe.vue';
 import SectionWhatWeDoVue from '@/components/FrontEnd/sections/SectionWhatWeDo.vue';
 import SectionDonationBanner from '@/components/FrontEnd/sections/SectionDonationBanner.vue';
 import SectionVolunteersVue from '@/components/FrontEnd/sections/SectionVolunteers.vue';
 import SectionTestimonialVue from '@/components/FrontEnd/sections/SectionTestimonial.vue';
 import SectionNewsBlogVue from '@/components/FrontEnd/sections/SectionNewsBlog.vue';
+import SectionPrograms from '@/components/FrontEnd/sections/SectionPrograms.vue';
+
 import SectionUpcomingEvents from '@/components/FrontEnd/sections/SectionUpcomingEvents.vue';
 import SectionContactUs from '@/components/FrontEnd/sections/SectionContactUs.vue';
-import SectionSponsorsVue from '@/components/FrontEnd/sections/SectionSponsors.vue';
+// import SectionSponsorsVue from '@/components/FrontEnd/sections/SectionSponsors.vue';
 
 
 import { onBeforeMount, onMounted, watch } from 'vue';

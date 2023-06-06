@@ -48,19 +48,19 @@ const testimonials = ref([
         full_name: "Richard Afoudo",
         occupation: "Student",
         testimony: "I like the idea of spreading equal potentials. Thanks to Gleiche Foundation millions of hearts are being touched in Cameroon.",
-        img_thumb: '/assets/images/gleichefoundationLogo.png',
+        img_thumb: '@/assets/images/gleichefoundationLogo.png',
     },
     {
         full_name: "James Milner",
         occupation: "Sales Director",
         testimony: "I like the idea of spreading equal potentials. Thanks to Gleiche Foundation millions of hearts are being touched in Cameroon.",
-        img_thumb: '/assets/images/gleichefoundationLogo.png',
+        img_thumb: '@/assets/images/gleichefoundationLogo.png',
     },
     {
         full_name: "Cecile Nollino",
         occupation: "Travel Consultor",
         testimony: "I like the idea of spreading equal potentials. Thanks to Gleiche Foundation millions of hearts are being touched in Cameroon.",
-        img_thumb: '/assets/images/gleichefoundationLogo.png',
+        img_thumb: '@/assets/images/gleichefoundationLogo.png',
     }
 ]);
 

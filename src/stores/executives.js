@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import {useConfigStore} from './config'
+import { useConfigStore } from './config'
 import Parse from 'parse/dist/parse.min.js';
 
 
@@ -9,8 +9,10 @@ export const useExecutivesStore = defineStore('executives', {
     state: () => {
         return {
             executives: [],
+            single_executive: {},
             is_loading_executives: false,
-            has_reached_max : false,
+            is_loading_single_executive: false,
+            has_reached_max: false,
             fetch_limit: 7,
             load_more: false,
             configStore: useConfigStore()
@@ -21,15 +23,40 @@ export const useExecutivesStore = defineStore('executives', {
 
     actions: {
 
-        async getExe(){
+        async getSingleExecutive(id) {
+            this.is_loading_single_executive = true
+            try {
+                const executive = Parse.Object.extend("executives");
+                const query = new Parse.Query(executive);
+                const object = await query.get(id);
+                let img_url = object.get('img_thumb') ? object.get('img_thumb').url() : 'https://gleichefoundation.org/public/img/logo.jpg'
+
+
+                this.single_executive = {
+                    id: object.id,
+                    full_name: object.get('full_name'),
+                    bio: object.get('bio'),
+                    position: object.get('position'),
+                    email: object.get('email'),
+                    img_thumb: img_url
+                }
+            } catch (error) {
+                console.log(error.message)
+            }
+
+            this.is_loading_single_executive = false
+
+        },
+
+        async getExe() {
             console.log("Inside here")
-            this.debounce(async()=> await this.getExecutives());
+            this.debounce(async () => await this.getExecutives());
         },
 
 
         async getExecutives() {
 
-            if(this.has_reached_max) return
+            if (this.has_reached_max) return
 
             if (this.executives.length == 0) {
 

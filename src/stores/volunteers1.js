@@ -2,6 +2,8 @@ import { defineStore } from 'pinia'
 import { ref } from 'vue'
 import { useConfigStore } from '@/stores/config'
 import Parse from 'parse/dist/parse.min.js';
+import { ElNotification } from 'element-plus'
+
 
 
 
@@ -69,9 +71,60 @@ export const useVolunteerStore1 = defineStore('volunteers1', () => {
       console.log(error)
     }
 
+  }
 
+  const beVolunteer = async (data) => {
+
+    console.log(data)
+
+    let isOk = false
+
+    if(data !== undefined){
+      const BeVolunteer = Parse.Object.extend("Volunteers");
+      const beVolunteer = new BeVolunteer();
+  
+      // beVolunteer.set("full_name", data.full_name)
+      // beVolunteer.set("email", data.email)
+      // beVolunteer.set("phone", data.phone)
+      // beVolunteer.set("address", data.address)
+  
+  
+      try {
+        const result = await beVolunteer.save(data)
+
+        isOk = true
+        // return true
+      } catch (error) {
+        switch (error.code) {
+  
+          case 100:
+            ElNotification({
+              title: 'Error',
+              message: 'Connection failed.Please Check your connection and continue',
+              type: 'error',
+            })
+            break;
+          default:
+            ElNotification({
+              title: 'Error',
+              message: error.message + " | code : " + error.code,
+              type: 'error',
+            })
+        }
+        // return false
+        isOk = false
+      }
+    }else{
+      ElNotification({
+        title: 'Error',
+        message: 'The data field is undefied',
+        type: 'error',
+    })
+
+    }
+    return isOk
   }
 
 
-  return { volunteers, is_loading_volunteers, has_reached_max, fetch_limit, load_more, getVolunteers }
+  return { volunteers, is_loading_volunteers, has_reached_max, fetch_limit, load_more, getVolunteers,beVolunteer }
 })
