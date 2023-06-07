@@ -21,9 +21,9 @@
 </template>
 
 <script setup>
-import AccountNavBar from '../../components/BackEnd/Section/AccountNavBar.vue';
-import AccountSideNav from '../../components/BackEnd/Section/AccountSideNav.vue';
-import AccountFooter from '../../components/BackEnd/Section/AccountFooter.vue';
+import AccountNavBar from '@/components/BackEnd/section/AccountNavBar.vue';
+import AccountSideNav from '@/components/BackEnd/section/AccountSideNav.vue';
+import AccountFooter from '@/components/BackEnd/section/AccountFooter.vue';
 
 
 

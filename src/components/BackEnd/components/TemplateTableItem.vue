@@ -57,7 +57,7 @@
 <script setup>
 import { ref } from 'vue';
 import moment from 'moment'
-import LinkButton from '../../FrontEnd/Components/LinkButton.vue';
+import LinkButton from '@/components/FrontEnd/components/LinkButton.vue';
 const dropdownOpen = ref(false)
 
 const props = defineProps({

@@ -14,7 +14,7 @@
                 <div class="py-12">
                     <div class=" bg-white py-24 px-2 md:px-10 lg:px-52 relative">
 
-                        <div class="absolute left-0">
+                        <div class="absolute left-0 z-0">
                             <img src="@/assets/images/home_bg4.png" alt="" class="w-full ">
                         </div>
                         <div class="absolute right-0 top-0">
@@ -282,156 +282,157 @@
                                 <path data-v-68276cea="" d="M13.9957 41.7601H13.0088V42.747H13.9957V41.7601Z"
                                     fill="#2449DB"></path>
                                 <path data-v-68276cea="" d="M13.9957 47.7248H13.0088V48.7117H13.9957V47.7248Z"
-                                fill="#2449DB"></path>
-                            <path data-v-68276cea="" d="M13.9957 53.6938H13.0088V54.6807H13.9957V53.6938Z"
-                                fill="#2449DB"></path>
-                            <path data-v-68276cea="" d="M13.9957 59.658H13.0088V60.6449H13.9957V59.658Z" fill="#2449DB">
-                            </path>
-                            <path data-v-68276cea="" d="M19.3976 0.00012207H18.4106V0.987033H19.3976V0.00012207Z"
-                                fill="#2449DB"></path>
-                            <path data-v-68276cea="" d="M19.3976 5.96451H18.4106V6.95142H19.3976V5.96451Z"
-                                fill="#2449DB"></path>
-                            <path data-v-68276cea="" d="M19.3976 11.9335H18.4106V12.9204H19.3976V11.9335Z"
-                                fill="#2449DB"></path>
-                            <path data-v-68276cea="" d="M19.3976 17.8981H18.4106V18.885H19.3976V17.8981Z"
-                                fill="#2449DB"></path>
-                            <path data-v-68276cea="" d="M19.3976 23.8622H18.4106V24.8492H19.3976V23.8622Z"
-                                fill="#2449DB"></path>
-                            <path data-v-68276cea="" d="M19.3976 29.8269H18.4106V30.8138H19.3976V29.8269Z"
-                                fill="#2449DB"></path>
-                            <path data-v-68276cea="" d="M19.3976 35.7959H18.4106V36.7828H19.3976V35.7959Z"
-                                fill="#2449DB"></path>
-                            <path data-v-68276cea="" d="M19.3976 41.7601H18.4106V42.747H19.3976V41.7601Z"
-                                fill="#2449DB"></path>
-                            <path data-v-68276cea="" d="M19.3976 47.7248H18.4106V48.7117H19.3976V47.7248Z"
-                                fill="#2449DB"></path>
-                            <path data-v-68276cea="" d="M19.3976 53.6938H18.4106V54.6807H19.3976V53.6938Z"
-                                fill="#2449DB"></path>
-                            <path data-v-68276cea="" d="M19.3976 59.658H18.4106V60.6449H19.3976V59.658Z" fill="#2449DB">
-                            </path>
-                            <path data-v-68276cea="" d="M24.7994 0.00012207H23.8125V0.987033H24.7994V0.00012207Z"
-                                fill="#2449DB"></path>
-                            <path data-v-68276cea="" d="M24.7994 5.96451H23.8125V6.95142H24.7994V5.96451Z"
-                                fill="#2449DB"></path>
-                            <path data-v-68276cea="" d="M24.7994 11.9335H23.8125V12.9204H24.7994V11.9335Z"
-                                fill="#2449DB"></path>
-                            <path data-v-68276cea="" d="M24.7994 17.8981H23.8125V18.885H24.7994V17.8981Z"
-                                fill="#2449DB"></path>
-                            <path data-v-68276cea="" d="M24.7994 23.8622H23.8125V24.8492H24.7994V23.8622Z"
-                                fill="#2449DB"></path>
-                            <path data-v-68276cea="" d="M24.7994 29.8269H23.8125V30.8138H24.7994V29.8269Z"
-                                fill="#2449DB"></path>
-                            <path data-v-68276cea="" d="M24.7994 35.7959H23.8125V36.7828H24.7994V35.7959Z"
-                                fill="#2449DB"></path>
-                            <path data-v-68276cea="" d="M24.7994 41.7601H23.8125V42.747H24.7994V41.7601Z"
-                                fill="#2449DB"></path>
-                            <path data-v-68276cea="" d="M24.7994 47.7248H23.8125V48.7117H24.7994V47.7248Z"
-                                fill="#2449DB"></path>
-                            <path data-v-68276cea="" d="M24.7994 53.6938H23.8125V54.6807H24.7994V53.6938Z"
-                                fill="#2449DB"></path>
-                            <path data-v-68276cea="" d="M24.7994 59.658H23.8125V60.6449H24.7994V59.658Z" fill="#2449DB">
-                            </path>
-                            <path data-v-68276cea="" d="M30.1964 0.00012207H29.2095V0.987033H30.1964V0.00012207Z"
-                                fill="#2449DB"></path>
-                            <path data-v-68276cea="" d="M30.1964 5.96451H29.2095V6.95142H30.1964V5.96451Z"
-                                fill="#2449DB"></path>
-                            <path data-v-68276cea="" d="M30.1964 11.9335H29.2095V12.9204H30.1964V11.9335Z"
-                                fill="#2449DB"></path>
-                            <path data-v-68276cea="" d="M30.1964 17.8981H29.2095V18.885H30.1964V17.8981Z"
-                                fill="#2449DB"></path>
-                            <path data-v-68276cea="" d="M30.1964 23.8622H29.2095V24.8492H30.1964V23.8622Z"
-                                fill="#2449DB"></path>
-                            <path data-v-68276cea="" d="M30.1964 29.8269H29.2095V30.8138H30.1964V29.8269Z"
-                                fill="#2449DB"></path>
-                            <path data-v-68276cea="" d="M30.1964 35.7959H29.2095V36.7828H30.1964V35.7959Z"
-                                fill="#2449DB"></path>
-                            <path data-v-68276cea="" d="M30.1964 41.7601H29.2095V42.747H30.1964V41.7601Z"
-                                fill="#2449DB"></path>
-                            <path data-v-68276cea="" d="M30.1964 47.7248H29.2095V48.7117H30.1964V47.7248Z"
-                                fill="#2449DB"></path>
-                            <path data-v-68276cea="" d="M30.1964 53.6938H29.2095V54.6807H30.1964V53.6938Z"
-                                fill="#2449DB"></path>
-                            <path data-v-68276cea="" d="M30.1964 59.658H29.2095V60.6449H30.1964V59.658Z" fill="#2449DB">
-                            </path>
-                            <path data-v-68276cea="" d="M35.5978 0.00012207H34.6108V0.987033H35.5978V0.00012207Z"
-                                fill="#2449DB"></path>
-                            <path data-v-68276cea="" d="M35.5978 5.96451H34.6108V6.95142H35.5978V5.96451Z"
-                                fill="#2449DB"></path>
-                            <path data-v-68276cea="" d="M35.5978 11.9335H34.6108V12.9204H35.5978V11.9335Z"
-                                fill="#2449DB"></path>
-                            <path data-v-68276cea="" d="M35.5978 17.8981H34.6108V18.885H35.5978V17.8981Z"
-                                fill="#2449DB"></path>
-                            <path data-v-68276cea="" d="M35.5978 23.8622H34.6108V24.8492H35.5978V23.8622Z"
-                                fill="#2449DB"></path>
-                            <path data-v-68276cea="" d="M35.5978 29.8269H34.6108V30.8138H35.5978V29.8269Z"
-                                fill="#2449DB"></path>
-                            <path data-v-68276cea="" d="M35.5978 35.7959H34.6108V36.7828H35.5978V35.7959Z"
-                                fill="#2449DB"></path>
-                            <path data-v-68276cea="" d="M35.5978 41.7601H34.6108V42.747H35.5978V41.7601Z"
-                                fill="#2449DB"></path>
-                            <path data-v-68276cea="" d="M35.5978 47.7248H34.6108V48.7117H35.5978V47.7248Z"
-                                fill="#2449DB"></path>
-                            <path data-v-68276cea="" d="M35.5978 53.6938H34.6108V54.6807H35.5978V53.6938Z"
-                                fill="#2449DB"></path>
-                            <path data-v-68276cea="" d="M35.5978 59.658H34.6108V60.6449H35.5978V59.658Z" fill="#2449DB">
-                            </path>
-                            <path data-v-68276cea="" d="M41.0001 0.00012207H40.0132V0.987033H41.0001V0.00012207Z"
-                                fill="#2449DB"></path>
-                            <path data-v-68276cea="" d="M41.0001 5.96451H40.0132V6.95142H41.0001V5.96451Z"
-                                fill="#2449DB"></path>
-                            <path data-v-68276cea="" d="M41.0001 11.9335H40.0132V12.9204H41.0001V11.9335Z"
-                                fill="#2449DB"></path>
-                            <path data-v-68276cea="" d="M41.0001 17.8981H40.0132V18.885H41.0001V17.8981Z"
-                                fill="#2449DB"></path>
-                            <path data-v-68276cea="" d="M41.0001 23.8622H40.0132V24.8492H41.0001V23.8622Z"
-                                fill="#2449DB"></path>
-                            <path data-v-68276cea="" d="M41.0001 29.8269H40.0132V30.8138H41.0001V29.8269Z"
-                                fill="#2449DB"></path>
-                            <path data-v-68276cea="" d="M41.0001 35.7959H40.0132V36.7828H41.0001V35.7959Z"
-                                fill="#2449DB"></path>
-                            <path data-v-68276cea="" d="M41.0001 41.7601H40.0132V42.747H41.0001V41.7601Z"
-                                fill="#2449DB"></path>
-                            <path data-v-68276cea="" d="M41.0001 47.7248H40.0132V48.7117H41.0001V47.7248Z"
-                                fill="#2449DB"></path>
-                            <path data-v-68276cea="" d="M41.0001 53.6938H40.0132V54.6807H41.0001V53.6938Z"
-                                fill="#2449DB"></path>
-                            <path data-v-68276cea="" d="M41.0001 59.658H40.0132V60.6449H41.0001V59.658Z" fill="#2449DB">
-                            </path>
-                        </g>
-                        <defs data-v-68276cea="">
-                            <clipPath data-v-68276cea="" id="clip0_8_176">
-                                <rect data-v-68276cea="" width="55" height="60.6449" fill="white"
-                                    transform="translate(-14)"></rect>
-                            </clipPath>
-                        </defs>
-                    </svg>
+                                    fill="#2449DB"></path>
+                                <path data-v-68276cea="" d="M13.9957 53.6938H13.0088V54.6807H13.9957V53.6938Z"
+                                    fill="#2449DB"></path>
+                                <path data-v-68276cea="" d="M13.9957 59.658H13.0088V60.6449H13.9957V59.658Z" fill="#2449DB">
+                                </path>
+                                <path data-v-68276cea="" d="M19.3976 0.00012207H18.4106V0.987033H19.3976V0.00012207Z"
+                                    fill="#2449DB"></path>
+                                <path data-v-68276cea="" d="M19.3976 5.96451H18.4106V6.95142H19.3976V5.96451Z"
+                                    fill="#2449DB"></path>
+                                <path data-v-68276cea="" d="M19.3976 11.9335H18.4106V12.9204H19.3976V11.9335Z"
+                                    fill="#2449DB"></path>
+                                <path data-v-68276cea="" d="M19.3976 17.8981H18.4106V18.885H19.3976V17.8981Z"
+                                    fill="#2449DB"></path>
+                                <path data-v-68276cea="" d="M19.3976 23.8622H18.4106V24.8492H19.3976V23.8622Z"
+                                    fill="#2449DB"></path>
+                                <path data-v-68276cea="" d="M19.3976 29.8269H18.4106V30.8138H19.3976V29.8269Z"
+                                    fill="#2449DB"></path>
+                                <path data-v-68276cea="" d="M19.3976 35.7959H18.4106V36.7828H19.3976V35.7959Z"
+                                    fill="#2449DB"></path>
+                                <path data-v-68276cea="" d="M19.3976 41.7601H18.4106V42.747H19.3976V41.7601Z"
+                                    fill="#2449DB"></path>
+                                <path data-v-68276cea="" d="M19.3976 47.7248H18.4106V48.7117H19.3976V47.7248Z"
+                                    fill="#2449DB"></path>
+                                <path data-v-68276cea="" d="M19.3976 53.6938H18.4106V54.6807H19.3976V53.6938Z"
+                                    fill="#2449DB"></path>
+                                <path data-v-68276cea="" d="M19.3976 59.658H18.4106V60.6449H19.3976V59.658Z" fill="#2449DB">
+                                </path>
+                                <path data-v-68276cea="" d="M24.7994 0.00012207H23.8125V0.987033H24.7994V0.00012207Z"
+                                    fill="#2449DB"></path>
+                                <path data-v-68276cea="" d="M24.7994 5.96451H23.8125V6.95142H24.7994V5.96451Z"
+                                    fill="#2449DB"></path>
+                                <path data-v-68276cea="" d="M24.7994 11.9335H23.8125V12.9204H24.7994V11.9335Z"
+                                    fill="#2449DB"></path>
+                                <path data-v-68276cea="" d="M24.7994 17.8981H23.8125V18.885H24.7994V17.8981Z"
+                                    fill="#2449DB"></path>
+                                <path data-v-68276cea="" d="M24.7994 23.8622H23.8125V24.8492H24.7994V23.8622Z"
+                                    fill="#2449DB"></path>
+                                <path data-v-68276cea="" d="M24.7994 29.8269H23.8125V30.8138H24.7994V29.8269Z"
+                                    fill="#2449DB"></path>
+                                <path data-v-68276cea="" d="M24.7994 35.7959H23.8125V36.7828H24.7994V35.7959Z"
+                                    fill="#2449DB"></path>
+                                <path data-v-68276cea="" d="M24.7994 41.7601H23.8125V42.747H24.7994V41.7601Z"
+                                    fill="#2449DB"></path>
+                                <path data-v-68276cea="" d="M24.7994 47.7248H23.8125V48.7117H24.7994V47.7248Z"
+                                    fill="#2449DB"></path>
+                                <path data-v-68276cea="" d="M24.7994 53.6938H23.8125V54.6807H24.7994V53.6938Z"
+                                    fill="#2449DB"></path>
+                                <path data-v-68276cea="" d="M24.7994 59.658H23.8125V60.6449H24.7994V59.658Z" fill="#2449DB">
+                                </path>
+                                <path data-v-68276cea="" d="M30.1964 0.00012207H29.2095V0.987033H30.1964V0.00012207Z"
+                                    fill="#2449DB"></path>
+                                <path data-v-68276cea="" d="M30.1964 5.96451H29.2095V6.95142H30.1964V5.96451Z"
+                                    fill="#2449DB"></path>
+                                <path data-v-68276cea="" d="M30.1964 11.9335H29.2095V12.9204H30.1964V11.9335Z"
+                                    fill="#2449DB"></path>
+                                <path data-v-68276cea="" d="M30.1964 17.8981H29.2095V18.885H30.1964V17.8981Z"
+                                    fill="#2449DB"></path>
+                                <path data-v-68276cea="" d="M30.1964 23.8622H29.2095V24.8492H30.1964V23.8622Z"
+                                    fill="#2449DB"></path>
+                                <path data-v-68276cea="" d="M30.1964 29.8269H29.2095V30.8138H30.1964V29.8269Z"
+                                    fill="#2449DB"></path>
+                                <path data-v-68276cea="" d="M30.1964 35.7959H29.2095V36.7828H30.1964V35.7959Z"
+                                    fill="#2449DB"></path>
+                                <path data-v-68276cea="" d="M30.1964 41.7601H29.2095V42.747H30.1964V41.7601Z"
+                                    fill="#2449DB"></path>
+                                <path data-v-68276cea="" d="M30.1964 47.7248H29.2095V48.7117H30.1964V47.7248Z"
+                                    fill="#2449DB"></path>
+                                <path data-v-68276cea="" d="M30.1964 53.6938H29.2095V54.6807H30.1964V53.6938Z"
+                                    fill="#2449DB"></path>
+                                <path data-v-68276cea="" d="M30.1964 59.658H29.2095V60.6449H30.1964V59.658Z" fill="#2449DB">
+                                </path>
+                                <path data-v-68276cea="" d="M35.5978 0.00012207H34.6108V0.987033H35.5978V0.00012207Z"
+                                    fill="#2449DB"></path>
+                                <path data-v-68276cea="" d="M35.5978 5.96451H34.6108V6.95142H35.5978V5.96451Z"
+                                    fill="#2449DB"></path>
+                                <path data-v-68276cea="" d="M35.5978 11.9335H34.6108V12.9204H35.5978V11.9335Z"
+                                    fill="#2449DB"></path>
+                                <path data-v-68276cea="" d="M35.5978 17.8981H34.6108V18.885H35.5978V17.8981Z"
+                                    fill="#2449DB"></path>
+                                <path data-v-68276cea="" d="M35.5978 23.8622H34.6108V24.8492H35.5978V23.8622Z"
+                                    fill="#2449DB"></path>
+                                <path data-v-68276cea="" d="M35.5978 29.8269H34.6108V30.8138H35.5978V29.8269Z"
+                                    fill="#2449DB"></path>
+                                <path data-v-68276cea="" d="M35.5978 35.7959H34.6108V36.7828H35.5978V35.7959Z"
+                                    fill="#2449DB"></path>
+                                <path data-v-68276cea="" d="M35.5978 41.7601H34.6108V42.747H35.5978V41.7601Z"
+                                    fill="#2449DB"></path>
+                                <path data-v-68276cea="" d="M35.5978 47.7248H34.6108V48.7117H35.5978V47.7248Z"
+                                    fill="#2449DB"></path>
+                                <path data-v-68276cea="" d="M35.5978 53.6938H34.6108V54.6807H35.5978V53.6938Z"
+                                    fill="#2449DB"></path>
+                                <path data-v-68276cea="" d="M35.5978 59.658H34.6108V60.6449H35.5978V59.658Z" fill="#2449DB">
+                                </path>
+                                <path data-v-68276cea="" d="M41.0001 0.00012207H40.0132V0.987033H41.0001V0.00012207Z"
+                                    fill="#2449DB"></path>
+                                <path data-v-68276cea="" d="M41.0001 5.96451H40.0132V6.95142H41.0001V5.96451Z"
+                                    fill="#2449DB"></path>
+                                <path data-v-68276cea="" d="M41.0001 11.9335H40.0132V12.9204H41.0001V11.9335Z"
+                                    fill="#2449DB"></path>
+                                <path data-v-68276cea="" d="M41.0001 17.8981H40.0132V18.885H41.0001V17.8981Z"
+                                    fill="#2449DB"></path>
+                                <path data-v-68276cea="" d="M41.0001 23.8622H40.0132V24.8492H41.0001V23.8622Z"
+                                    fill="#2449DB"></path>
+                                <path data-v-68276cea="" d="M41.0001 29.8269H40.0132V30.8138H41.0001V29.8269Z"
+                                    fill="#2449DB"></path>
+                                <path data-v-68276cea="" d="M41.0001 35.7959H40.0132V36.7828H41.0001V35.7959Z"
+                                    fill="#2449DB"></path>
+                                <path data-v-68276cea="" d="M41.0001 41.7601H40.0132V42.747H41.0001V41.7601Z"
+                                    fill="#2449DB"></path>
+                                <path data-v-68276cea="" d="M41.0001 47.7248H40.0132V48.7117H41.0001V47.7248Z"
+                                    fill="#2449DB"></path>
+                                <path data-v-68276cea="" d="M41.0001 53.6938H40.0132V54.6807H41.0001V53.6938Z"
+                                    fill="#2449DB"></path>
+                                <path data-v-68276cea="" d="M41.0001 59.658H40.0132V60.6449H41.0001V59.658Z" fill="#2449DB">
+                                </path>
+                            </g>
+                            <defs data-v-68276cea="">
+                                <clipPath data-v-68276cea="" id="clip0_8_176">
+                                    <rect data-v-68276cea="" width="55" height="60.6449" fill="white"
+                                        transform="translate(-14)"></rect>
+                                </clipPath>
+                            </defs>
+                        </svg>
 
-                    <div class="flex flex-col items-center">
-                        <img class="mb-3 w-24 md:w-32 lg:w-40 h:24 md:h-32 lg:h-40 rounded-full shadow-lg mx-auto"
-                            :src="single_executive.img_thumb" alt="product designer">
+                        <div class="flex flex-col items-center relative z-20">
+                            <img class="mb-3 w-24 h-24 md:w-32 lg:w-40  md:h-32 lg:h-40 rounded-full shadow-lg mx-auto"
+                                :src="single_executive.img_thumb" alt="product designer">
 
-                        <h1 class="text-lg text-gray-700"> {{ single_executive.full_name || 'Gleiche Member' }} </h1>
-                        <h3 class="text-sm text-gray-400 "> {{ single_executive.position }} </h3>
-                        <p class="text-xs md:text-base text-gray-400 mt-4 text-justify"> Lorem ipsum dolor sit amet,
-                            consectetur adipiscing elit,
-                            sed do eiusmod tempor
-                            incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Corrupti quas laborum et non minima, perspiciatis possimus nulla, velit
-                            cupiditate hic fugit dolores voluptates pariatur voluptatem voluptas recusandae asperiores
-                            quidem quam. Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa quasi corporis
-                            perferendis non sunt sint, a repudiandae fugiat distinctio nisi maiores, doloribus voluptate
-                            omnis fugit molestias voluptatem ea earum accusantium nesciunt? Iure qui corrupti
-                            consequuntur minus saepe quidem pariatur ipsa vitae, voluptatibus, voluptate distinctio
-                            molestiae enim velit voluptatum quaerat at? </p>
+                            <h1 class="text-lg text-gray-700"> {{ single_executive.full_name || 'Gleiche Member' }} </h1>
+                            <h3 class="text-sm text-gray-400 "> {{ single_executive.position }} </h3>
+                            <p class="text-sm md:text-base text-gray-400 mt-4 text-justify"> Lorem ipsum dolor sit amet,
+                                consectetur adipiscing elit,
+                                sed do eiusmod tempor
+                                incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet consectetur
+                                adipisicing elit. Corrupti quas laborum et non minima, perspiciatis possimus nulla, velit
+                                cupiditate hic fugit dolores voluptates pariatur voluptatem voluptas recusandae asperiores
+                                quidem quam. Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa quasi corporis
+                                perferendis non sunt sint, a repudiandae fugiat distinctio nisi maiores, doloribus voluptate
+                                omnis fugit molestias voluptatem ea earum accusantium nesciunt? Iure qui corrupti
+                                consequuntur minus saepe quidem pariatur ipsa vitae, voluptatibus, voluptate distinctio
+                                molestiae enim velit voluptatum quaerat at? </p>
+                        </div>
+
+
                     </div>
-
-
                 </div>
-            </div>
 
+            </div>
         </div>
     </div>
-</div></template>
+</template>
 
 <script setup>
 import PageBanner from '@/components/FrontEnd/components/PageBanner.vue'

@@ -2,12 +2,12 @@
     <div class="container py-6 md:py-3 flex flex-col gap-4 min-h-screen">
         <SectionTitleVue title="Volunteers"></SectionTitleVue>
         <div class="mb-8">
-            <div v-if="!is_loading_volunteers" class="w-full gap-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+            <div v-if="!is_loading_volunteers" class="w-full gap-2 md:gap-5 grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3">
 
                 <VolunteerCard v-for="(item, index) in volunteers" :item="item" :index="index" :key="item.id" />
             </div>
 
-            <div v-else class="w-full gap-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+            <div v-else class="w-full gap-2 md:gap-5 grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3">
                 <el-skeleton v-for="i in 6" style="width: 100%" animated>
                     <template #template>
                         <el-skeleton-item variant="image" style="width: 100%; height: 240px" />

@@ -15,15 +15,12 @@ import ExecutiveDetail from '../views/frontEnd/ExecutiveDetail.vue'
 import UpcomingEventDetail from '../views/frontEnd/UpcomingEventDetail.vue'
 import BeVolunteer from '../views/frontEnd/BeVolunteer.vue'
 
-
-
-
-
-
 // Back End
 
 import AccountView from '../views/backEnd/AccountView.vue'
 import DashboardView from '../views/backEnd/DashboardView.vue'
+import NewsBlogs from '../views/backEnd/NewsBlogs.vue'
+import NewsBlogForm from '../views/backEnd/NewsBlogForm.vue'
 
 
 import { useUserStore } from '@/stores/user'
@@ -44,8 +41,6 @@ const router = createRouter({
         {
           path: '',
           component: HomeView,
-
-          
         },
         {
           path: 'about',
@@ -119,10 +114,14 @@ const router = createRouter({
           path: '',
           component: DashboardView,
         },
-        // {
-        //   path: 'templates',
-        //   component: TemplatesView,
-        // },
+        {
+          path: 'news-blogs',
+          component: NewsBlogs,
+        },
+        {
+          path: 'add-news-blog',
+          component: NewsBlogForm,
+        },
         // {
         //   path: 'add-template',
         //   component: AddTemplateView,

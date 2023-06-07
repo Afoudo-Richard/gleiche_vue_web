@@ -430,7 +430,7 @@
 
 <script setup>
 
-import DataCard from '../../components/BackEnd/Components/DataCard.vue';
+import DataCard from '@/components/BackEnd/components/DataCard.vue';
 
 
 

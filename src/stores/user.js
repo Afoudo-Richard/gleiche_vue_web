@@ -15,13 +15,7 @@ export const useUserStore = defineStore('user', {
         initializeUserStore() {
             // Parse.enableEncryptedUser();
             // Parse.secret = 'ArcTikq_User_Key';
-            const currentUser = Parse.User.current();
-
-            if (currentUser) {
-                this.is_authenticated = true
-            } else {
-                this.is_authenticated = false
-            }
+            this.set_is_authenticated()
         },
 
         logOutUser(){

@@ -1,5 +1,5 @@
 <template>
-    <div class="h-96 bg-no-repeat bg-cover bg-center bg-fixed relative bg-happy">
+    <div class=" h-52 md:h-60 lg:h-96 bg-no-repeat bg-cover bg-center bg-fixed relative bg-happy">
         <div class="absolute inset-0 bg-black/40 flex flex-col gap-6 items-center justify-center">
             <div class="flex flex-col items-center gap-3">
                 <span

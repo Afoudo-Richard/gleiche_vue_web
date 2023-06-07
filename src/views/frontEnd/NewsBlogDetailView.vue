@@ -12,7 +12,7 @@
             <div class="container py-6 md:py-12 flex flex-col gap-4 ">
 
                 <div class="py-12">
-                    <div class="h-screen bg-white py-24 px-20">
+                    <div class="h-screen bg-white p-2 md:py-24 md:px-20">
                         {{ single_news_blog.content }}
 
                     </div>

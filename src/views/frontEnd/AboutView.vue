@@ -1,5 +1,5 @@
 <template>
-  <PageBanner></PageBanner>
+  <PageBanner title="About"></PageBanner>
 
   <div class="bg-gray-200">
     <div class="container py-6 md:py-12 flex flex-col gap-4">

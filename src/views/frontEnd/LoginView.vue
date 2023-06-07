@@ -52,11 +52,15 @@ import Parse from 'parse/dist/parse.min.js';
 import PulseLoader from 'vue-spinner/src/PulseLoader.vue'
 import { useRouter } from 'vue-router'
 import { useConfigStore } from '@/stores/config'
+import { useUserStore } from '@/stores/user'
+
 
 
 
 const router = useRouter()
 const configStore = useConfigStore()
+const userStore = useUserStore()
+
 
 
 const user_email = ref('')

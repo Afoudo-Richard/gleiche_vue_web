@@ -47,6 +47,9 @@
 
                         <li v-for="(link, index) in nav_links" :key="index"
                             class=" relative border-b-2 border-white hover:border-primary transition-all">
+                            <!-- <template v-if="link !== '/login' && ">
+
+                            </template> -->
                             <RouterLink v-if="!link.sub_links" :to="link.to">
                                 <span class="text-lg xl:text-2xl">{{ link.text }}</span>
                             </RouterLink>
@@ -88,37 +91,66 @@
 
         </div>
 
-        <div class="fixed inset-0 bg-primary-300/40 z-50 flex justify-end transform translate-x-full transition-all"
-            :class="{ 'translate-x-0': open_side_nav }">
+    </div>
 
-            <div
-                class="w-9/12 h-full bg-white rounded-tl-3xl border-l-4 border-secondary flex flex-col gap-2 font-patrick-hand px-5 pt-12">
-                <div class="mb-5" @click="open_side_nav = false">
-                    <span class="text-2xl text-secondary">
-                        <i class="fa-solid fa-xmark"></i>
-                    </span>
-                </div>
-                <a href="#" class="text-lg xl:text-2xl">Home</a>
-                <a href="#" class="text-lg xl:text-2xl">About</a>
-                <a href="#" class="text-lg xl:text-2xl">Donate</a>
-                <div>
-                    <a @click="openDropdown = !openDropdown" class="text-lg xl:text-2xl">
-                        <span>upcoming events</span>
-                        <span class="transition-transform duration-200 transform text-sm"
-                            :class="{ 'rotate-180': openDropdown, 'rotate-0': !openDropdown }"><i
-                                class="fa-solid fa-chevron-down"></i></span>
-                        <div x-show="openDropdown" class="pl-6 flex flex-col" :class="{ 'hidden': openDropdown == false }">
-                            <a href="#" class="text-lg xl:text-2xl">Home</a>
-                            <a href="#" class="text-lg xl:text-2xl">About</a>
-                            <a href="#" class="text-lg xl:text-2xl">Donate</a>
-                        </div>
-                    </a>
-                </div>
-                <a href="#" class="text-lg xl:text-2xl">Donate</a>
-
+    <div class="fixed top-0 z-[9999] h-screen w-9/12 transition-all duration-200 border-secondary border-l-4 bg-white rounded-tl-3xl"
+        :class="{ 'right-0': open_side_nav, '-right-full': !open_side_nav }">
+        <div class="w-full  rounded-tl-3xl  flex flex-col gap-2 font-patrick-hand px-5 pt-12">
+            <div class="mb-5" @click="open_side_nav = false">
+                <span class="text-2xl text-secondary">
+                    <i class="fa-solid fa-xmark"></i>
+                </span>
             </div>
+
+            <ul class="flex flex-col gap-6">
+                <li v-for="(link, index) in nav_links" :key="index">
+                    <RouterLink v-if="!link.sub_links" :to="link.to" @click="open_side_nav=false">
+                        <span class="text-lg xl:text-2xl">{{ link.text }}</span>
+                    </RouterLink>
+
+                    <span v-else @click="open = !open" ref="target"
+                        class="text-lg xl:text-2xl flex items-center gap-2 cursor-pointer">
+                        <span>{{ link.text }}</span>
+                        <span class="transition-transform duration-200 transform text-sm"
+                            :class="{ 'rotate-180': open, 'rotate-0': !open }"><i
+                                class="fa-solid fa-chevron-down"></i></span>
+                    </span>
+
+                    <div v-if="link.sub_links" v-show="open"
+                        class="absolute right-0 w-full mt-2 origin-top-right rounded-md shadow-lg md:w-48 z-50">
+                        <div class="px-2 py-2 bg-white rounded-md shadow dark-mode:bg-gray-800">
+                            <RouterLink v-for="(link, index) in link.sub_links" :key="index" :to="link.to" @click="open_side_nav=false">
+                                <span
+                                    class="block px-4 py-2 mt-2 text-lg font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+                                    {{ link.text }}
+                                </span>
+                            </RouterLink>
+
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+            <div>
+                <a @click="openDropdown = !openDropdown" class="text-lg xl:text-2xl">
+                    <span>Upcoming events</span>
+                    <span class="transition-transform duration-200 transform text-sm"
+                        :class="{ 'rotate-180': openDropdown, 'rotate-0': !openDropdown }"><i
+                            class="fa-solid fa-chevron-down"></i></span>
+                    <div x-show="openDropdown" class="pl-6 flex flex-col overflow-hidden transition-all duration-300" :class="{ 'h-0': openDropdown == false, ' h-min':openDropdown }">
+                        <a href="#" class="text-lg xl:text-2xl">Home</a>
+                        <a href="#" class="text-lg xl:text-2xl">About</a>
+                        <a href="#" class="text-lg xl:text-2xl">Donate</a>
+                    </div>
+                </a>
+            </div>
+            <a href="#" class="text-lg xl:text-2xl">Donate</a>
+
         </div>
 
+        <div class="absolute bottom-5 w-full flex justify-center">
+            <h5 class="text-xl font-patrick-hand text-center">We all have "Equal Potentials"</h5>
+        </div>
     </div>
 </template>
 
@@ -127,6 +159,14 @@
 import { onClickOutside } from '@vueuse/core'
 import LinkButton from '../components/LinkButton.vue';
 import { ref, onMounted } from 'vue'
+import { useUserStore } from '@/stores/user'
+import { storeToRefs } from 'pinia'
+
+
+const userStore = useUserStore()
+
+const { is_authenticated } = storeToRefs(userStore)
+
 
 const showBar = ref(false)
 const open = ref(false)
@@ -178,7 +218,7 @@ const nav_links = ref([
                 text: 'Login',
             },
             {
-                to: '/login',
+                to: '/account',
                 text: 'Dashboard',
             },
         ]

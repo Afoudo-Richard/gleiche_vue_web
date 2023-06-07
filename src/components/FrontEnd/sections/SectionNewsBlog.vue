@@ -114,6 +114,7 @@
                 </clipPath>
             </defs>
         </svg>
+        
         <div class="container flex flex-col justify-center items-center relative z-10">
 
             <SectionTitleVue title="News & Blog"></SectionTitleVue>

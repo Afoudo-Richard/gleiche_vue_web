@@ -10,14 +10,14 @@
         <div v-else>
             <div>
                 <div class="container py-6 md:py-12 flex flex-col gap-4 ">
-                    <div class="flex">
+                    <div class="flex flex-col md:flex-row gap-6">
                         <div class="w-full md:w-5/12">
-                            <div class="w-full h-96 bg-red-500 rounded-lg">
+                            <div class="w-full h-72 md:h-96 bg-red-500 rounded-lg">
 
                             </div>
                         </div>
 
-                        <div class="w-full md:w-7/12 md:pl-6">
+                        <div class="w-full md:w-7/12">
                             <h1 class="mb-2 text-xl md:text-2xl font-bold leading-none tracking-tight text-gray-800">
                                 {{ single_upcoming_event.title }}</h1>
                             <p class="leading-normal text-sm md:text-base">{{ single_upcoming_event.description }} Lorem

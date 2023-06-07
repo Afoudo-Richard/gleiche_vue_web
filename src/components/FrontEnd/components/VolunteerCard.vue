@@ -1,10 +1,10 @@
 <template>
     <div
-        class="flex flex-col items-center p-8 transition-colors duration-200 transform cursor-pointer group hover:bg-secondary rounded-xl">
+        class="flex flex-col items-center p-2 md:p-8 transition-colors duration-200 transform cursor-pointer group hover:bg-secondary rounded-xl">
         <img class="object-cover w-24 h-24 md:w-44 md:h-44  rounded-full ring-4 ring-gray-300 group-hover:ring-primary"
              :src='item.img_thumb' alt="">
 
-        <h1 class="mt-4 text-lg md:text-xl font-semibold text-gray-700 capitalize group-hover:text-white text-center">
+        <h1 class="mt-4 text-sm md:text-lg  font-semibold text-gray-700 capitalize group-hover:text-white text-center">
             {{ item.full_name }}</h1>
 
         <!-- <p class="mt-2 text-sm md:text-base text-gray-500 capitalize dark:text-gray-300 group-hover:text-primary">

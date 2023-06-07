@@ -19,7 +19,8 @@
 </template>
 
 <script setup>
-import SideNavItemVue from '../Components/SideNavItem.vue';
+import SideNavItemVue from '@/components/BackEnd/components/SideNavItem.vue';
+
 import { ref } from 'vue'
 
 const sideLinks = ref([
@@ -29,8 +30,8 @@ const sideLinks = ref([
         icon: '<i class="fa-solid fa-file-contract"></i>'
     },
     {
-        to: '/account/templates',
-        text: 'Templates',
+        to: '/account/news-blogs',
+        text: 'News&Blog',
         icon: '<i class="fa-solid fa-folder"></i>'
     },
     {
